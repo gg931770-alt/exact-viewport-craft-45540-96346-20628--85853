@@ -46,9 +46,9 @@ const Contact = () => {
           </div>
           
           <div className="rounded-lg overflow-hidden shadow-[var(--shadow-xl)] h-[400px] lg:h-auto border-2 border-accent">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.123!2d-46.8511!3d-23.7143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfab1234567890%3A0x1234567890abcdef!2sRua%20Almerindo%20Pereira%20Bueno%2C%20148%20-%20Jardim%20Nisalves%2C%20Itapecerica%20da%20Serra%20-%20SP%2C%2006871-030!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="100%" style={{
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.3858842615164!2d-47.138971999999995!3d-22.9360115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8b7e081f62529%3A0xdb136997248ad285!2sMarmoraria%20Uni%C3%A3o%20Campinas!5e0!3m2!1sen!2sbr!4v1762384878189!5m2!1sen!2sbr" width="100%" height="100%" style={{
             border: 0
-          }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização Marmoraria União - Rua Almerindo Pereira Bueno, 148, Itapecerica da Serra - SP" />
+          }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização Marmoraria União Campinas" />
           </div>
         </div>
       </div>
