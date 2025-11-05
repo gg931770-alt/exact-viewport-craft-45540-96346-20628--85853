@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 const About = () => {
   return <section id="sobre" className="py-12 md:py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-8 text-center"><span translate="no">CONHEÇA A THE GOLD MARMORARIA</span>  </h2>
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-8 text-center"><span translate="no">Conheça a Marmoraria União</span></h2>
         
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="space-y-6 font-sans text-base md:text-lg text-primary leading-relaxed max-w-prose">
