@@ -27,11 +27,9 @@ const About = () => {
           <div className="relative">
             <div className="bg-card p-8 rounded-lg border-2 border-accent shadow-[var(--shadow-lg)]">
               <h3 className="font-serif text-2xl font-bold text-primary mb-4">
-                <span translate="no">CONHEÇA A MARMORARIA UNIÃO</span>
+                
               </h3>
-              <p className="font-sans text-primary mb-6 leading-relaxed">
-                Tradição familiar unida à excelência em acabamento. Transformamos ambientes com precisão artesanal e materiais nobres de alta qualidade.
-              </p>
+              
               <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[var(--shadow-elegant)] mb-6 border-2 border-accent">
                 <img src={teamPhoto} alt="Equipe Aleporcelarte no showroom" className="w-full h-full object-cover" />
               </div>
