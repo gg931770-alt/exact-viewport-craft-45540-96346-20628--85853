@@ -48,7 +48,7 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="premium" size="lg" asChild className="text-base md:text-lg">
-              <a href="https://wa.me/5511993187939?text=Ol%C3%A1%2C%20queria%20saber%20mais%20sobre%20a%20marmoraria." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
                 FAÇA SEU ORÇAMENTO
               </a>
             </Button>

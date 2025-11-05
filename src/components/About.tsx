@@ -36,7 +36,7 @@ const About = () => {
                 <img src={teamPhoto} alt="Equipe Aleporcelarte no showroom" className="w-full h-full object-cover" />
               </div>
               <Button variant="premium" size="lg" className="w-full" asChild>
-                <a href="https://wa.me/5511993187939?text=Ol%C3%A1%2C%20queria%20saber%20mais%20sobre%20a%20marmoraria." target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
                   FAÇA SEU ORÇAMENTO
                 </a>
               </Button>

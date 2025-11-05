@@ -21,7 +21,7 @@ const Contact = () => {
               <div>
                 <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Whatsapp</h3>
                 <a 
-                  href="https://wa.me/5511993187939?text=Ol%C3%A1%2C%20queria%20saber%20mais%20sobre%20a%20marmoraria." 
+                  href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans text-primary hover:brightness-90 transition-all hover:underline decoration-primary decoration-2 underline-offset-4 font-semibold"
@@ -43,7 +43,7 @@ const Contact = () => {
             </div>
             
             <Button variant="premium" size="lg" className="w-full mt-6" asChild>
-              <a href="https://wa.me/5511993187939?text=Ol%C3%A1%2C%20queria%20saber%20mais%20sobre%20a%20marmoraria." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
                 FAÇA SEU ORÇAMENTO
               </a>
