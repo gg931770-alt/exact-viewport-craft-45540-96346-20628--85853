@@ -16,11 +16,11 @@ const About = () => {
             </p>
             
             <p className="mb-5">
-              Hoje, a empresa vem mantendo seu legado familiar e exclusivo. Essa evolução trouxe uma nova era para a empresa, que agora foca na criação de peças personalizadas com materiais de alta qualidade, como <strong className="text-accent">Pedras Ultracompactas, Mármores, Quartzos e Granitos</strong>.
+              Hoje, a empresa vem mantendo seu legado familiar e exclusivo. Essa evolução trouxe uma nova era para a empresa, que agora foca na criação de peças personalizadas com materiais de alta qualidade, como <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos e Granitos</strong>.
             </p>
             
             <p>
-              Cada projeto é feito sob medida, refletindo a individualidade de cada cliente. Com um compromisso inabalável com a <strong className="text-accent">qualidade e atendimento personalizado</strong>, a empresa se destaca no mercado, olhando para o futuro e buscando expandir sua presença e incorporar novas tecnologias.
+              Cada projeto é feito sob medida, refletindo a individualidade de cada cliente. Com um compromisso inabalável com a <strong className="text-primary">qualidade e atendimento personalizado</strong>, a empresa se destaca no mercado, olhando para o futuro e buscando expandir sua presença e incorporar novas tecnologias.
             </p>
           </div>
 

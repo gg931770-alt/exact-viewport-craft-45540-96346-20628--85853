@@ -104,7 +104,7 @@ const Services = () => {
                       <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300" />
                     </div>
                     <CardContent className="p-6">
-                      <h3 className="font-serif text-xl md:text-2xl font-bold text-primary group-hover:text-accent mb-3 line-clamp-1 transition-colors">
+                      <h3 className="font-serif text-xl md:text-2xl font-bold text-primary group-hover:text-primary mb-3 line-clamp-1 transition-colors">
                         {service.title}
                       </h3>
                       <p className="font-sans text-primary leading-relaxed line-clamp-3">
