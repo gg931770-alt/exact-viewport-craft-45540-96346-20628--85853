@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 const About = () => {
   return <section id="sobre" className="py-12 md:py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-8 text-center"><span translate="no">Conheça a Marmoraria União</span></h2>
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-8 text-center"><span translate="no">CONHEÇA A MARMORARIA UNIÃO</span></h2>
         
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="space-y-6 font-sans text-base md:text-lg text-primary leading-relaxed max-w-prose">
             <p className="mb-5">
-              <span translate="no">THE GOLD MARMORARIA</span>{" "}nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de bancadas.
+              <span translate="no">MARMORARIA UNIÃO</span>{" "}nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de bancadas.
             </p>
             
             <p className="mb-5">
@@ -27,7 +27,7 @@ const About = () => {
           <div className="relative">
             <div className="bg-card p-8 rounded-lg border-2 border-accent shadow-[var(--shadow-lg)]">
               <h3 className="font-serif text-2xl font-bold text-primary mb-4">
-                <span translate="no">CONHEÇA A THE GOLD</span>
+                <span translate="no">CONHEÇA A MARMORARIA UNIÃO</span>
               </h3>
               <p className="font-sans text-primary mb-6 leading-relaxed">
                 Tradição familiar unida à excelência em acabamento. Transformamos ambientes com precisão artesanal e materiais nobres de alta qualidade.

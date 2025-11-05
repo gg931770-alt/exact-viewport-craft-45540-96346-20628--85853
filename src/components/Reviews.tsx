@@ -8,7 +8,7 @@ const reviews = [{
   name: "Vinicius Pontes Magalhães",
   date: "02 de julho de 2025",
   city: "São Paulo, SP",
-  text: "Bom minha casa está em reforma, por isso o buraco e o piso velho, mas o atendimento, instalação e a qualidade do material da pia ficou nota 10, podem contratar, eu índico. Parabéns para os meninos da The Gold Marmoraria.",
+  text: "Bom minha casa está em reforma, por isso o buraco e o piso velho, mas o atendimento, instalação e a qualidade do material da pia ficou nota 10, podem contratar, eu índico. Parabéns para os meninos da Marmoraria União.",
   rating: 5,
   initials: "VM"
 }, {
@@ -22,14 +22,14 @@ const reviews = [{
   name: "Jessica Elize Alves",
   date: "03 de agosto de 2025",
   city: "São Paulo, SP",
-  text: "Serviço muito bom, peças de qualidade e prazo cumprido! Muito bom The Gold Marmoraria!",
+  text: "Serviço muito bom, peças de qualidade e prazo cumprido! Muito bom Marmoraria União!",
   rating: 5,
   initials: "JA"
 }, {
   name: "Bruno William",
   date: "25 de setembro de 2025",
   city: "São Paulo, SP",
-  text: "Tivemos ótima experiência com a The Gold Marmoraria. Atendimento profissional, instalação bem executada e acabamento de primeira. Indico com tranquilidade.",
+  text: "Tivemos ótima experiência com a Marmoraria União. Atendimento profissional, instalação bem executada e acabamento de primeira. Indico com tranquilidade.",
   rating: 5,
   initials: "BW"
 }, {
@@ -155,7 +155,7 @@ const Reviews = () => {
         <div className="mb-8">
           <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-left" style={{ color: 'white' }}>CONFIRA  AS  AVALIAÇÕES  DE  NOSSOS  CLIENTES</h2>
           <div className="flex items-center gap-2" style={{ color: 'hsl(40 40% 93%)' }}>
-            <span className="font-sans font-semibold" translate="no">The Gold Marmoraria</span>
+            <span className="font-sans font-semibold" translate="no">Marmoraria União</span>
             <span>•</span>
             <div className="flex gap-1">
               {[1, 2, 3, 4, 5].map(star => <Star key={star} className="h-5 w-5" style={{ fill: '#FFD700', color: '#FFD700' }} />)}

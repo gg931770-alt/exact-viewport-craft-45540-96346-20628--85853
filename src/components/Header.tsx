@@ -29,7 +29,7 @@ const Header = () => {
         <a href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
           <img 
             src={logo} 
-            alt="The Gold Marmoraria" 
+            alt="Marmoraria União" 
             className="h-12 md:h-14 w-auto object-contain"
           />
         </a>

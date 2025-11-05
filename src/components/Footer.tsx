@@ -8,14 +8,14 @@ const Footer = () => {
             <h3 className="font-serif text-2xl md:text-3xl font-bold mb-2" style={{
             color: 'white'
           }}>
-              <span translate="no">THE GOLD MARMORARIA</span>  
+              <span translate="no">MARMORARIA UNIÃO</span>  
             </h3>
             
             <div className="h-px bg-gradient-to-r from-transparent via-accent to-transparent mb-6" />
             <p className="font-sans text-sm" style={{
             color: 'hsl(40 40% 93%)'
           }}>
-              © {new Date().getFullYear()} <span translate="no">The Gold Marmoraria</span>  . Todos os direitos reservados.
+              © {new Date().getFullYear()} <span translate="no">Marmoraria União</span>. Todos os direitos reservados.
             </p>
           </div>
         </div>

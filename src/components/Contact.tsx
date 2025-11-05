@@ -59,7 +59,7 @@ const Contact = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localização The Gold Marmoraria - Rua Almerindo Pereira Bueno, 148, Itapecerica da Serra - SP"
+              title="Localização Marmoraria União - Rua Almerindo Pereira Bueno, 148, Itapecerica da Serra - SP"
             />
           </div>
         </div>
