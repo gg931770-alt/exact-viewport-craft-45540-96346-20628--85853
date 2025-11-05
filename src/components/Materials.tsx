@@ -90,8 +90,8 @@ const Materials = () => {
                         className="w-full h-full object-cover scale-90 group-hover:scale-95 transition-transform duration-500"
                       />
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center py-3 px-4" style={{ backgroundColor: 'hsl(43 75% 31% / 0.85)' }}>
-                      <h3 className="font-sans text-lg md:text-xl font-bold text-center" style={{ color: 'hsl(40 78% 95%)' }}>
+                    <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center py-3 px-4 bg-primary/90">
+                      <h3 className="font-sans text-lg md:text-xl font-bold text-center text-white">
                         {material.name}
                       </h3>
                     </div>
