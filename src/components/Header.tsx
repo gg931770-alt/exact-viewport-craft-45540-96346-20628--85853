@@ -30,7 +30,7 @@ const Header = () => {
           <img 
             src={logo} 
             alt="Marmoraria União" 
-            className="h-12 md:h-14 w-auto object-contain"
+            className="h-16 md:h-20 w-auto object-contain"
           />
         </a>
         
