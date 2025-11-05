@@ -25,12 +25,12 @@ const Header = () => {
         borderBottomColor: 'hsl(45 65% 53% / 0.3)'
       }}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-16 md:h-16 items-center justify-center md:justify-between px-4">
         <a href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
           <img 
             src={logo} 
             alt="Marmoraria União" 
-            className="h-16 md:h-20 w-auto object-contain"
+            className="h-20 md:h-16 w-auto object-contain"
           />
         </a>
         
