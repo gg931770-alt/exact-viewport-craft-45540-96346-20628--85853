@@ -1,8 +1,8 @@
-import ultracompactImg from "@/assets/material-ultracompact.png";
-import quartzImg from "@/assets/material-quartz.png";
-import marbleImg from "@/assets/material-marble.png";
-import porcelainImg from "@/assets/material-porcelain.png";
-import graniteImg from "@/assets/material-granite.png";
+import ultracompactImg from "@/assets/material-ultracompact.webp";
+import quartzImg from "@/assets/material-quartz.webp";
+import marbleImg from "@/assets/material-marble.webp";
+import porcelainImg from "@/assets/material-porcelain.webp";
+import graniteImg from "@/assets/material-granite.webp";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useRef, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
