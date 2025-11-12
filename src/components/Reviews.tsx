@@ -5,61 +5,75 @@ import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import type { CarouselApi } from "@/components/ui/carousel";
 const reviews = [{
-  name: "Vinicius Pontes Magalhães",
-  date: "02 de julho de 2025",
+  name: "Juliana Cardoso",
+  date: "15 de outubro de 2024",
   city: "São Paulo, SP",
-  text: "Bom minha casa está em reforma, por isso o buraco e o piso velho, mas o atendimento, instalação e a qualidade do material da pia ficou nota 10, podem contratar, eu índico. Parabéns para os meninos da Marmoraria União.",
+  text: "Atendimento muito gentil do Nichollas. Os valores justos e o serviço ficaram excelentes e dentro dos prazos estabelecidos. Estamos muito satisfeitos.",
   rating: 5,
-  initials: "VM"
+  initials: "JC"
 }, {
-  name: "Thaina Silva",
-  date: "10 de setembro de 2025",
+  name: "Yasmin Esther",
+  date: "22 de setembro de 2024",
   city: "São Paulo, SP",
-  text: "Excelente trabalho! A equipe foi extremamente profissional desde o primeiro contato até a finalização do serviço. Os acabamentos ficaram impecáveis, o atendimento foi sempre cordial e atencioso. Recomendo fortemente para quem busca qualidade e confiança",
+  text: "Ótimo atendimento, materiais de primeira, ótima qualidade, super bem atendido, uma ótima equipe de instalação!!Se quiser qualidade e preço justo, recomendo demais!!!",
   rating: 5,
-  initials: "TS"
+  initials: "YE"
 }, {
-  name: "Jessica Elize Alves",
-  date: "03 de agosto de 2025",
+  name: "Matheus Costa",
+  date: "05 de novembro de 2024",
   city: "São Paulo, SP",
-  text: "Serviço muito bom, peças de qualidade e prazo cumprido! Muito bom Marmoraria União!",
+  text: "Ótimo atendimento, e preços acessíveis",
   rating: 5,
-  initials: "JA"
+  initials: "MC"
 }, {
-  name: "Bruno William",
-  date: "25 de setembro de 2025",
+  name: "Sandra Roque",
+  date: "18 de agosto de 2024",
   city: "São Paulo, SP",
-  text: "Tivemos ótima experiência com a Marmoraria União. Atendimento profissional, instalação bem executada e acabamento de primeira. Indico com tranquilidade.",
+  text: "O Rafael que nos atendeu um amor de pessoa, excelente atendimento, serviço muito bem feito e com muita rapidez e o atendimento pós venda perfeito também. E pra mim foi o melhor preço e excelente custo benefício da região.",
   rating: 5,
-  initials: "BW"
+  initials: "SR"
 }, {
-  name: "Abraão Mendes",
-  date: "09 de dezembro de 2024",
+  name: "Flávia Fern Roque",
+  date: "29 de julho de 2024",
   city: "São Paulo, SP",
-  text: "Ótimo serviço prestado pelo Kleber e atendeu minha necessidade quanto ao prazo perfeitamente.",
+  text: "Fui atendido pelo Rafael exelente atendimento, melhor custo benefício de toda região, o atendimento e ótimo desde fechar a venda até o pós venda !!",
   rating: 5,
-  initials: "AM"
+  initials: "FR"
 }, {
-  name: "Antonio S.sobrinho",
-  date: "22 de agosto de 2025",
+  name: "Flávia Fern Roque",
+  date: "12 de outubro de 2024",
   city: "São Paulo, SP",
-  text: "Contratei as pedras da cozinha (pia) e lavanderia com bancada. Foi super rápida a produção e instalação! Recomendo!",
+  text: "Meu lavatório ficou lindo!! Fui super bem atendido, destaque especial ao vendedor Odair, muito profissional e gentil. Recomendo!!",
+  rating: 5,
+  initials: "FR"
+}, {
+  name: "Lisandra Duarte",
+  date: "03 de setembro de 2024",
+  city: "São Paulo, SP",
+  text: "Atendimento rápido e preço justo. Destaque para a instalação do sr Manuel, muito cuidadoso, amável e organizado. Parabéns!",
+  rating: 5,
+  initials: "LD"
+}, {
+  name: "Maria Alves",
+  date: "20 de novembro de 2024",
+  city: "São Paulo, SP",
+  text: "Serviço bem feito e pessoal super gentil. Fiz uma pia e balcão para fogão cooptok. Super recomendo.",
+  rating: 5,
+  initials: "MA"
+}, {
+  name: "Maria Podolog",
+  date: "14 de agosto de 2024",
+  city: "São Paulo, SP",
+  text: "Trabalho com excelência!! Estão de parabéns!! Entregaram antes do prazo determinado!! Ficou perfeito!!",
+  rating: 5,
+  initials: "MP"
+}, {
+  name: "Antônio José da Silva",
+  date: "07 de outubro de 2024",
+  city: "São Paulo, SP",
+  text: "O melhor lugar para comprar pedras de marmore",
   rating: 5,
   initials: "AS"
-}, {
-  name: "Higor Campos",
-  date: "07 de setembro de 2025",
-  city: "São Paulo, SP",
-  text: "Tudo perfeito: entrega no prazo, qualidade incrível e um atendimento de primeira!",
-  rating: 5,
-  initials: "HC"
-}, {
-  name: "mundo do rafa Gomes",
-  date: "15 de agosto de 2025",
-  city: "São Paulo, SP",
-  text: "Eu amei minha pedra da cozinha, várias pessoas do meu condomínio fecharam com eles, super recomendo.",
-  rating: 5,
-  initials: "RG"
 }];
 const Reviews = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -161,7 +175,7 @@ const Reviews = () => {
               {[1, 2, 3, 4, 5].map(star => <Star key={star} className="h-5 w-5" style={{ fill: '#FFD700', color: '#FFD700' }} />)}
             </div>
             <span>•</span>
-            <span className="font-sans">27 Avaliações</span>
+            <span className="font-sans">10 Avaliações</span>
           </div>
         </div>
         
