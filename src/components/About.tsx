@@ -1,4 +1,4 @@
-import teamPhoto from "@/assets/team-logo.png";
+import teamPhoto from "@/assets/team-logo.jpg";
 import { Button } from "@/components/ui/button";
 const About = () => {
   return <section id="sobre" className="py-12 md:py-16 bg-secondary">
@@ -34,11 +34,11 @@ const About = () => {
                 <img 
                   src={teamPhoto} 
                   alt="Logo União Mármores" 
-                  width="1200"
-                  height="1200"
+                  width="1920"
+                  height="1080"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <Button variant="premium" size="lg" className="w-full" asChild>
