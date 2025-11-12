@@ -21,9 +21,16 @@ const Hero = () => {
     }} plugins={[plugin.current]} className="absolute inset-0" onMouseEnter={plugin.current.stop} onMouseLeave={plugin.current.reset}>
         <CarouselContent className="h-[600px] md:h-[700px]">
           {heroImages.map((image, index) => <CarouselItem key={index} className="relative h-full">
-              <div className="absolute inset-0 bg-cover bg-center" style={{
-            backgroundImage: `url(${image})`
-          }} />
+              <div className="absolute inset-0">
+                <img
+                  src={image}
+                  alt={`Marmoraria União - Imagem ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  fetchPriority={index === 0 ? "high" : undefined}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </div>
             </CarouselItem>)}
         </CarouselContent>
       </Carousel>

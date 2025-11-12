@@ -103,7 +103,15 @@ const Services = () => {
               {services.map((service, index) => <CarouselItem key={index} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
                   <Card className="overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-all group cursor-pointer h-full border-2 border-accent hover:brightness-105 bg-card">
                     <div className="aspect-[4/3] overflow-hidden relative">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width="400" height="300" />
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        width="400" 
+                        height="300" 
+                        loading="lazy" 
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      />
                     </div>
                     <CardContent className="p-6">
                       <h3 className="font-serif text-xl md:text-2xl font-bold text-primary group-hover:text-primary mb-3 line-clamp-1 transition-colors">

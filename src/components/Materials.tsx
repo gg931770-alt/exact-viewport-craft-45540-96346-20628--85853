@@ -88,6 +88,10 @@ const Materials = () => {
                       <img 
                         src={material.image} 
                         alt={material.name}
+                        width="697"
+                        height="928"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover scale-90 group-hover:scale-95 transition-transform duration-500"
                       />
                     </div>

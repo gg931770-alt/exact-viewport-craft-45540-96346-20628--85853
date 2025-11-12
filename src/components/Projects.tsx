@@ -84,7 +84,15 @@ const Projects = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {projects.map((project, index) => <div key={index} className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative border-2 border-accent hover:brightness-105 transition-all snap-start flex-shrink-0 w-[calc(50vw-2rem)] md:w-auto md:min-w-0" onClick={() => setSelectedImage(project)}>
-                <img src={project} alt={`Projeto ${index + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img 
+                  src={project} 
+                  alt={`Projeto ${index + 1}`} 
+                  width="1080"
+                  height="1080"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                />
               </div>)}
           </div>
           
