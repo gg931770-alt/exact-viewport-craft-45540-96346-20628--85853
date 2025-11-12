@@ -2,7 +2,7 @@ import gourmetImg from "@/assets/service-gourmet-new.png";
 import countertopImg from "@/assets/service-countertop.jpg";
 import carvedSinkImg from "@/assets/service-carved-sink.jpg";
 import bathroomImg from "@/assets/service-bathroom-new.jpg";
-import bathtubImg from "@/assets/service-bathtub.jpg";
+import stairsMarbleImg from "@/assets/service-stairs-marble.jpg";
 import boatsImg from "@/assets/service-boats.jpg";
 import kitchenImg from "@/assets/service-kitchen.jpg";
 import { Card, CardContent } from "@/components/ui/card";
@@ -28,9 +28,9 @@ const services = [{
   description: "Realizamos trabalhos completos em banheiros com detalhes únicos",
   image: bathroomImg
 }, {
-  title: "Revestimentos banheiras",
-  description: "Revestimento premium para banheiras e nichos, alta resistência à umidade.",
-  image: bathtubImg
+  title: "Escadas",
+  description: "Projetamos escadas exclusivas que valorizam cada ambiente, unindo design refinado, elegância e harmonia em cada detalhe.",
+  image: stairsMarbleImg
 }, {
   title: "Embarcações",
   description: "Acabamentos sob medida para embarcações, durabilidade e estética superior.",
