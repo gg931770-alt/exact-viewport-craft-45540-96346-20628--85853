@@ -78,7 +78,7 @@ const reviews = [{
 const Reviews = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  
+
   // Detectar mobile
   useEffect(() => {
     const checkMobile = () => {
@@ -88,14 +88,13 @@ const Reviews = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-  
+
   // Configurar autoplay: rápido no mobile, lento no desktop
   const plugin = useRef(Autoplay({
     delay: isMobile ? 2500 : 6000,
     stopOnInteraction: false,
     stopOnMouseEnter: !isMobile
   }));
-  
   const [api, setApi] = useState<CarouselApi>();
   const sectionRef = useRef<HTMLElement>(null);
   const hasAutoScrolledRef = useRef(false);
@@ -117,113 +116,118 @@ const Reviews = () => {
       plugin.current.stop();
     }
   };
-
   useEffect(() => {
     if (!api || !sectionRef.current) return;
-
     const checkIsMobile = () => window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
     if (!checkIsMobile() || prefersReducedMotion || hasAutoScrolledRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.6 && !hasAutoScrolledRef.current) {
-            hasAutoScrolledRef.current = true;
-            isAutoScrollingRef.current = true;
-
-            const autoScroll = async () => {
-              for (let i = 0; i < 3; i++) {
-                await new Promise(resolve => setTimeout(resolve, 700));
-                if (!isAutoScrollingRef.current) break;
-                api.scrollNext();
-                await new Promise(resolve => setTimeout(resolve, 700));
-              }
-              isAutoScrollingRef.current = false;
-            };
-
-            autoScroll();
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.6 && !hasAutoScrolledRef.current) {
+          hasAutoScrolledRef.current = true;
+          isAutoScrollingRef.current = true;
+          const autoScroll = async () => {
+            for (let i = 0; i < 3; i++) {
+              await new Promise(resolve => setTimeout(resolve, 700));
+              if (!isAutoScrollingRef.current) break;
+              api.scrollNext();
+              await new Promise(resolve => setTimeout(resolve, 700));
+            }
+            isAutoScrollingRef.current = false;
+          };
+          autoScroll();
+        }
+      });
+    }, {
+      threshold: 0.6
+    });
     observer.observe(sectionRef.current);
-
     const handleUserInteraction = () => {
       isAutoScrollingRef.current = false;
     };
-
     api.on('pointerDown', handleUserInteraction);
-    
     return () => {
       observer.disconnect();
       api.off('pointerDown', handleUserInteraction);
     };
   }, [api]);
-
   return <section ref={sectionRef} className="py-12 md:py-16 bg-primary">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-left" style={{ color: 'white' }}>CONFIRA  AS  AVALIAÇÕES  DE  NOSSOS  CLIENTES</h2>
-          <div className="flex items-center gap-2" style={{ color: 'hsl(40 40% 93%)' }}>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-left" style={{
+          color: 'white'
+        }}>CONFIRA  AS  AVALIAÇÕES  DE  NOSSOS  CLIENTES</h2>
+          <div className="flex items-center gap-2" style={{
+          color: 'hsl(40 40% 93%)'
+        }}>
             <span className="font-sans font-semibold" translate="no">Marmoraria União</span>
             <span>•</span>
             <div className="flex gap-1">
-              {[1, 2, 3, 4, 5].map(star => <Star key={star} className="h-5 w-5" style={{ fill: '#FFD700', color: '#FFD700' }} />)}
+              {[1, 2, 3, 4, 5].map(star => <Star key={star} className="h-5 w-5" style={{
+              fill: '#FFD700',
+              color: '#FFD700'
+            }} />)}
             </div>
             <span>•</span>
-            <span className="font-sans">10 Avaliações</span>
+            <span className="font-sans"> 31 Avaliações</span>
           </div>
         </div>
         
         <div className="max-w-6xl mx-auto">
-          <Carousel 
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true
-            }} 
-            plugins={[plugin.current]} 
-            className="w-full" 
-            onMouseEnter={plugin.current.stop} 
-            onMouseLeave={plugin.current.reset}
-          >
+          <Carousel setApi={setApi} opts={{
+          align: "start",
+          loop: true
+        }} plugins={[plugin.current]} className="w-full" onMouseEnter={plugin.current.stop} onMouseLeave={plugin.current.reset}>
             <CarouselContent className="-ml-4">
               {reviews.map((review, index) => <CarouselItem key={index} className="pl-4 md:basis-1/2">
-                  <Card 
-                    className="hover:shadow-[var(--shadow-elegant)] transition-all h-full border-2 border-accent" 
-                    style={{ backgroundColor: 'white' }}
-                    onClick={handleCardClick}
-                  >
+                  <Card className="hover:shadow-[var(--shadow-elegant)] transition-all h-full border-2 border-accent" style={{
+                backgroundColor: 'white'
+              }} onClick={handleCardClick}>
                     <CardContent className="p-4">
                       <div className="flex items-start gap-3 mb-3">
                         <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
-                          <span className="font-sans font-medium text-sm" style={{ color: 'hsl(43 75% 31%)' }}>
+                          <span className="font-sans font-medium text-sm" style={{
+                        color: 'hsl(43 75% 31%)'
+                      }}>
                             {review.initials}
                           </span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-sans font-medium text-sm truncate" style={{ color: 'black' }}>{review.name}</p>
+                          <p className="font-sans font-medium text-sm truncate" style={{
+                        color: 'black'
+                      }}>{review.name}</p>
                           <div className="flex gap-0.5 mt-1">
-                            {[1, 2, 3, 4, 5].map(star => <Star key={star} className="h-3.5 w-3.5" style={{ fill: '#FFD700', color: '#FFD700' }} />)}
+                            {[1, 2, 3, 4, 5].map(star => <Star key={star} className="h-3.5 w-3.5" style={{
+                          fill: '#FFD700',
+                          color: '#FFD700'
+                        }} />)}
                           </div>
                         </div>
                       </div>
-                      <p className="font-sans text-sm mb-2 leading-relaxed" style={{ color: 'black' }}>
+                      <p className="font-sans text-sm mb-2 leading-relaxed" style={{
+                    color: 'black'
+                  }}>
                         {review.text}
                       </p>
-                      <div className="font-sans text-xs" style={{ color: 'hsl(43 92% 38%)' }}>
+                      <div className="font-sans text-xs" style={{
+                    color: 'hsl(43 92% 38%)'
+                  }}>
                         <p>{review.date}</p>
                       </div>
                     </CardContent>
                   </Card>
                 </CarouselItem>)}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 backdrop-blur border-2" style={{ backgroundColor: 'hsl(40 78% 95% / 0.9)', borderColor: 'hsl(45 65% 53%)', color: 'hsl(43 75% 31%)' }} aria-label="Avaliação anterior" />
-            <CarouselNext className="hidden md:flex -right-12 backdrop-blur border-2" style={{ backgroundColor: 'hsl(40 78% 95% / 0.9)', borderColor: 'hsl(45 65% 53%)', color: 'hsl(43 75% 31%)' }} aria-label="Próxima avaliação" />
+            <CarouselPrevious className="hidden md:flex -left-12 backdrop-blur border-2" style={{
+            backgroundColor: 'hsl(40 78% 95% / 0.9)',
+            borderColor: 'hsl(45 65% 53%)',
+            color: 'hsl(43 75% 31%)'
+          }} aria-label="Avaliação anterior" />
+            <CarouselNext className="hidden md:flex -right-12 backdrop-blur border-2" style={{
+            backgroundColor: 'hsl(40 78% 95% / 0.9)',
+            borderColor: 'hsl(45 65% 53%)',
+            color: 'hsl(43 75% 31%)'
+          }} aria-label="Próxima avaliação" />
           </Carousel>
         </div>
       </div>
