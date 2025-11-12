@@ -16,7 +16,7 @@ const About = () => {
             </p>
             
             <p className="mb-5">
-              Hoje, a empresa vem mantendo seu legado familiar e exclusivo. Essa evolução trouxe uma nova era para a empresa, que agora foca na criação de peças personalizadas com materiais de alta qualidade, como <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos e Granitos</strong>.
+              Hoje, a empresa vem mantendo seu legado familiar e exclusivo. Essa evolução trouxe uma nova era para a empresa, que agora foca na criação de peças personalizadas com materiais de alta qualidade, como <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos, Quartzitos e Granitos</strong>.
             </p>
             
             <p>
@@ -31,15 +31,7 @@ const About = () => {
               </h3>
               
               <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[var(--shadow-elegant)] mb-6 border-2 border-accent">
-                <img 
-                  src={teamPhoto} 
-                  alt="Logo União Mármores" 
-                  width="1920"
-                  height="1080"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
+                <img src={teamPhoto} alt="Logo União Mármores" width="1920" height="1080" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
               <Button variant="premium" size="lg" className="w-full" asChild>
                 <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
