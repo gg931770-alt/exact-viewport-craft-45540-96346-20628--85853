@@ -1,4 +1,4 @@
-import teamPhoto from "@/assets/team-photo.jpg";
+import teamPhoto from "@/assets/team-logo.png";
 import { Button } from "@/components/ui/button";
 const About = () => {
   return <section id="sobre" className="py-12 md:py-16 bg-secondary">
@@ -33,12 +33,12 @@ const About = () => {
               <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[var(--shadow-elegant)] mb-6 border-2 border-accent">
                 <img 
                   src={teamPhoto} 
-                  alt="Equipe Aleporcelarte no showroom" 
-                  width="629"
-                  height="471"
+                  alt="Logo União Mármores" 
+                  width="1200"
+                  height="1200"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-contain"
                 />
               </div>
               <Button variant="premium" size="lg" className="w-full" asChild>
