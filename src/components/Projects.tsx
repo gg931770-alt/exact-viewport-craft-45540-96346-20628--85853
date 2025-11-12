@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
 import project1 from "@/assets/project-11.png";
 import project2 from "@/assets/project-12.png";
 import project3 from "@/assets/project-13.png";
@@ -84,6 +86,15 @@ const Projects = () => {
             {projects.map((project, index) => <div key={index} className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative border-2 border-accent hover:brightness-105 transition-all snap-start flex-shrink-0 w-[calc(50vw-2rem)] md:w-auto md:min-w-0" onClick={() => setSelectedImage(project)}>
                 <img src={project} alt={`Projeto ${index + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>)}
+          </div>
+          
+          <div className="flex justify-center mt-8">
+            <Button variant="premium" size="lg" asChild>
+              <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5" />
+                FAÇA SEU ORÇAMENTO
+              </a>
+            </Button>
           </div>
         </div>
       </section>

@@ -9,6 +9,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { useEffect, useRef, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
 const services = [{
   title: "Área gourmet",
   description: "Projeto e execução de bancadas e ilhas para áreas gourmet com acabamento de alto padrão.",
@@ -117,6 +119,15 @@ const Services = () => {
             <CarouselPrevious className="left-0 backdrop-blur border-2 md:-left-12" style={{ backgroundColor: 'hsl(40 78% 95% / 0.9)', borderColor: 'hsl(45 65% 53%)', color: 'hsl(43 75% 31%)' }} aria-label="Serviço anterior" />
             <CarouselNext className="right-0 backdrop-blur border-2 md:-right-12" style={{ backgroundColor: 'hsl(40 78% 95% / 0.9)', borderColor: 'hsl(45 65% 53%)', color: 'hsl(43 75% 31%)' }} aria-label="Próximo serviço" />
           </Carousel>
+          
+          <div className="flex justify-center mt-8">
+            <Button variant="premium" size="lg" asChild>
+              <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-5 w-5" />
+                FAÇA SEU ORÇAMENTO
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>;
