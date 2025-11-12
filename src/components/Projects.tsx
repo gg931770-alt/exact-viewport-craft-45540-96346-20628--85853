@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import project1 from "@/assets/project-1.webp";
-import project2 from "@/assets/project-2.webp";
-import project3 from "@/assets/project-3.webp";
-import project4 from "@/assets/project-4.webp";
-import project5 from "@/assets/project-5.webp";
-import project6 from "@/assets/project-6.webp";
-import project7 from "@/assets/project-7.webp";
-import project8 from "@/assets/project-8.webp";
+import project1 from "@/assets/project-11.png";
+import project2 from "@/assets/project-12.png";
+import project3 from "@/assets/project-13.png";
+import project4 from "@/assets/project-14.png";
+import project5 from "@/assets/project-15.png";
+import project6 from "@/assets/project-16.png";
+import project7 from "@/assets/project-17.png";
+import project8 from "@/assets/project-18.png";
 import project9 from "@/assets/project-9.webp";
 import project10 from "@/assets/project-10.webp";
 
