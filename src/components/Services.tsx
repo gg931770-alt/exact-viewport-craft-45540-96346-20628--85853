@@ -114,7 +114,7 @@ const Services = () => {
                       />
                     </div>
                     <CardContent className="p-6">
-                      <h3 className="font-serif text-xl md:text-2xl font-bold text-primary group-hover:text-primary mb-3 line-clamp-1 transition-colors">
+                      <h3 className="font-serif text-xl md:text-2xl font-bold text-primary group-hover:text-primary mb-3 line-clamp-1 transition-colors" translate="no">
                         {service.title}
                       </h3>
                       <p className="font-sans text-primary leading-relaxed line-clamp-3">
