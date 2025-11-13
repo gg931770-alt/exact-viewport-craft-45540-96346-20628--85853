@@ -96,7 +96,7 @@ const Materials = () => {
                       />
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center py-3 px-4 bg-primary/90">
-                      <h3 className="font-sans text-lg md:text-xl font-bold text-center text-white">
+                      <h3 className="font-sans text-lg md:text-xl font-bold text-center text-white" translate="no">
                         {material.name}
                       </h3>
                     </div>
