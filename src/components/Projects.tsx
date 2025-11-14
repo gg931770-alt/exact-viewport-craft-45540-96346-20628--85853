@@ -9,8 +9,8 @@ import project5 from "@/assets/project-15.webp";
 import project6 from "@/assets/project-16.webp";
 import project7 from "@/assets/project-17.webp";
 import project8 from "@/assets/project-18.webp";
-import project9 from "@/assets/project-9.webp";
-import project10 from "@/assets/project-10.webp";
+import project9 from "@/assets/project-9-new.webp";
+import project10 from "@/assets/project-10-new.webp";
 
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
