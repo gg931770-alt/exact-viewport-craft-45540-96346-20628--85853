@@ -30,38 +30,8 @@ const Contact = () => {
               <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Horário de Atendimento</h3>
-                <p className="font-sans text-primary mx-0 my-0 px-0 py-0">
-                  Segunda à quinta: 8h às 17:30.
+                <p className="font-sans text-primary mx-0 my-0 px-0 py-0">Segunda à quinta: 8h às 17:30. 
 Sexta: 8h às 16:30.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <br />
                   Sábado: 8h às 12h
                 </p>
