@@ -29,9 +29,10 @@ const Contact = () => {
             <div className="flex items-start gap-4">
               <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Horário de Atendimento
-Segunda a quinta: 8h ás 17:30
-Sexta: 8h ás 16:30</h3>
+                <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Horário de Atendimento 
+
+
+Segunda a quinta: 8h ás 17:30 Sexta: 8h ás 16:30</h3>
                 
               </div>
             </div>
