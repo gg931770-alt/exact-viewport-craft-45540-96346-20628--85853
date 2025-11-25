@@ -29,11 +29,10 @@ const Contact = () => {
             <div className="flex items-start gap-4">
               <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Horário de Atendimento</h3>
-                <p className="font-sans text-primary mx-0 my-0 px-0 py-0">
-                  Segunda à quinta: 8h às 17:30.<br />
-                  Sexta: 8h às 16:30.
-                </p>
+                <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Horário de Atendimento
+Segunda a quinta: 8h ás 17:30
+Sexta: 8h ás 16:30</h3>
+                
               </div>
             </div>
             
