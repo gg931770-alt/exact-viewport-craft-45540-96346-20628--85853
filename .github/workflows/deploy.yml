@@ -40,6 +40,6 @@ jobs:
           log-level: verbose
 
 
-FTP_HOST: ftp.marmorariauniaocampinas.com.br
-FTP_USER:	u597718321.deploygithub
-FTP_PASS:	Un1@02025
+FTP_HOST  ftp.marmorariauniaocampinas.com.br
+FTP_USER	u597718321.deploygithub
+FTP_PASS	Un1@02025
