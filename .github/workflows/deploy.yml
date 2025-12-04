@@ -38,8 +38,3 @@ jobs:
           dangerous-clean-slate: true
           dry-run: false
           log-level: verbose
-
-
-FTP_HOST exemplo: ftp.marmorariauniaocampinas.com.br
-FTP_USER:	u597718321.deploygithub
-FTP_PASS:	Un1@02025
