@@ -54,7 +54,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col gap-4 justify-center md:justify-start items-center md:items-start">
-            <Button variant="premium" size="lg" asChild className="text-base md:text-lg animate-glow-pulse shadow-[0_0_20px_hsl(var(--primary)/0.6)]">
+            <Button variant="premium" size="lg" asChild className="text-base md:text-lg shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:shadow-[0_6px_30px_hsl(var(--primary)/0.5)] transition-shadow duration-300">
               <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
                 FAÇA SEU ORÇAMENTO
               </a>
