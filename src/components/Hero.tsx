@@ -53,10 +53,15 @@ const Hero = () => {
             Solicite seu orçamento hoje e garanta a melhor qualidade de materiais premium para sua obra
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <Button variant="premium" size="lg" asChild className="text-base md:text-lg">
+          <div className="flex flex-col gap-4 justify-center md:justify-start items-center md:items-start">
+            <Button variant="premium" size="lg" asChild className="text-base md:text-lg animate-glow-pulse shadow-[0_0_20px_hsl(var(--primary)/0.6)]">
               <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
                 FAÇA SEU ORÇAMENTO
+              </a>
+            </Button>
+            <Button variant="ghost" size="default" asChild className="text-cream-light hover:text-white hover:bg-white/10 border border-cream-light/30">
+              <a href="#contato">
+                NOSSA LOCALIZAÇÃO
               </a>
             </Button>
           </div>
