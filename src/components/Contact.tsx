@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Clock, MessageCircle } from "lucide-react";
+import { Clock, MessageCircle, MapPin } from "lucide-react";
 const Contact = () => {
   return <section id="contato" className="py-12 md:py-16 bg-primary">
       <div className="container mx-auto px-4">
@@ -32,6 +32,16 @@ const Contact = () => {
                 <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Horário de Atendimento</h3>
                 <p className="font-sans text-foreground">Segunda a quinta: 8h às 17:30</p>
                 <p className="font-sans text-foreground">Sexta: 8h às 16:30</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-sans font-semibold text-lg mb-2 text-primary">Nossa Localização</h3>
+                <p className="font-sans text-foreground">Avenida John Boyd Dunlop, 5821</p>
+                <p className="font-sans text-foreground">Satélite Íris 1, Campinas - SP</p>
+                <p className="font-sans text-foreground">CEP: 13059-587</p>
               </div>
             </div>
             
