@@ -49,10 +49,11 @@ const Services = () => {
   useEffect(() => {
     if (!api || !sectionRef.current) return;
 
-    const isMobile = () => window.innerWidth < 768;
+    // Check conditions once on mount, not in callback
+    const isMobile = window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    if (!isMobile() || prefersReducedMotion || hasAutoScrolledRef.current) return;
+    if (!isMobile || prefersReducedMotion || hasAutoScrolledRef.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,12 +62,15 @@ const Services = () => {
             hasAutoScrolledRef.current = true;
             isAutoScrollingRef.current = true;
 
-            setTimeout(() => {
-              if (isAutoScrollingRef.current && api) {
-                api.scrollNext();
-              }
-              isAutoScrollingRef.current = false;
-            }, 150);
+            // Use requestAnimationFrame to batch with next paint
+            requestAnimationFrame(() => {
+              setTimeout(() => {
+                if (isAutoScrollingRef.current && api) {
+                  api.scrollNext();
+                }
+                isAutoScrollingRef.current = false;
+              }, 150);
+            });
           }
         });
       },

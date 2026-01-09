@@ -118,14 +118,18 @@ const Reviews = () => {
   };
   useEffect(() => {
     if (!api || !sectionRef.current) return;
-    const checkIsMobile = () => window.innerWidth < 768;
+    
+    // Check conditions once on mount, not in callback
+    const isMobileCheck = window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!checkIsMobile() || prefersReducedMotion || hasAutoScrolledRef.current) return;
+    if (!isMobileCheck || prefersReducedMotion || hasAutoScrolledRef.current) return;
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting && entry.intersectionRatio >= 0.6 && !hasAutoScrolledRef.current) {
           hasAutoScrolledRef.current = true;
           isAutoScrollingRef.current = true;
+          
           const autoScroll = async () => {
             for (let i = 0; i < 3; i++) {
               await new Promise(resolve => setTimeout(resolve, 700));
@@ -135,12 +139,15 @@ const Reviews = () => {
             }
             isAutoScrollingRef.current = false;
           };
-          autoScroll();
+          
+          // Use requestAnimationFrame to batch with next paint
+          requestAnimationFrame(() => autoScroll());
         }
       });
     }, {
       threshold: 0.6
     });
+    
     observer.observe(sectionRef.current);
     const handleUserInteraction = () => {
       isAutoScrollingRef.current = false;

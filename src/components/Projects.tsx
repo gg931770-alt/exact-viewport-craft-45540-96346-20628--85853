@@ -24,10 +24,15 @@ const Projects = () => {
   useEffect(() => {
     if (!gridRef.current || !sectionRef.current) return;
 
-    const isMobile = () => window.innerWidth < 768;
+    // Check conditions once on mount, not in callback
+    const isMobile = window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    if (!isMobile() || prefersReducedMotion || hasAutoScrolledRef.current) return;
+    if (!isMobile || prefersReducedMotion || hasAutoScrolledRef.current) return;
+
+    // Cache scroll amount once before observer
+    const firstChild = gridRef.current.children[0] as HTMLElement | undefined;
+    const scrollAmount = firstChild ? firstChild.offsetWidth + 16 : 200;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,8 +42,6 @@ const Projects = () => {
             isAutoScrollingRef.current = true;
 
             const autoScroll = async () => {
-              const scrollAmount = gridRef.current!.children[0]?.clientWidth + 16 || 200;
-              
               for (let i = 0; i < 3; i++) {
                 await new Promise(resolve => setTimeout(resolve, 700));
                 if (!isAutoScrollingRef.current) break;
@@ -48,7 +51,8 @@ const Projects = () => {
               isAutoScrollingRef.current = false;
             };
 
-            autoScroll();
+            // Use requestAnimationFrame to batch with next paint
+            requestAnimationFrame(() => autoScroll());
           }
         });
       },
@@ -61,7 +65,7 @@ const Projects = () => {
       isAutoScrollingRef.current = false;
     };
 
-    gridRef.current.addEventListener('touchstart', handleUserInteraction);
+    gridRef.current.addEventListener('touchstart', handleUserInteraction, { passive: true });
     const gridElement = gridRef.current;
     
     return () => {
