@@ -32,6 +32,9 @@
     <!-- LCP Image Preload for faster initial paint -->
     <link rel="preload" as="image" href="/src/assets/hero-marble-kitchen.jpg" fetchpriority="high">
     
+    <!-- Preload critical resources to reduce render-blocking -->
+    <link rel="modulepreload" href="/src/main.tsx">
+    
     <!-- Premium Typography Fonts - Optimized for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
