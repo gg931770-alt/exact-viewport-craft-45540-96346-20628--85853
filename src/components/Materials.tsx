@@ -12,7 +12,7 @@ const materials = [
   { name: "MÁRMORE", image: marbleImg },
   { name: "GRANITO", image: graniteImg },
   { name: "PRIMER", image: porcelainImg },
-  { name: "QUARTZITO", image: marbleImg },
+  { name: "Quartzito", image: marbleImg },
 ];
 
 const Materials = () => {
