@@ -8,7 +8,7 @@ const reviews = [{
   name: "Juliana Cardoso",
   date: "15 de outubro de 2024",
   city: "São Paulo, SP",
-  text: "Atendimento muito gentil do Nichollas. Os valores justos e o serviço ficaram excelentes e dentro dos prazos estabelecidos. Estamos muito satisfeitos.",
+  text: "Atendimento muito gentil da equipe. Os valores justos e o serviço ficaram excelentes e dentro dos prazos estabelecidos. Estamos muito satisfeitos.",
   rating: 5,
   initials: "JC"
 }, {
@@ -29,28 +29,28 @@ const reviews = [{
   name: "Sandra Roque",
   date: "18 de agosto de 2024",
   city: "São Paulo, SP",
-  text: "O Rafael que nos atendeu um amor de pessoa, excelente atendimento, serviço muito bem feito e com muita rapidez e o atendimento pós venda perfeito também. E pra mim foi o melhor preço e excelente custo benefício da região.",
+  text: "A equipe que nos atendeu foi um amor, excelente atendimento, serviço muito bem feito e com muita rapidez e o atendimento pós venda perfeito também. E pra mim foi o melhor preço e excelente custo benefício da região.",
   rating: 5,
   initials: "SR"
 }, {
   name: "Flávia Fern Roque",
   date: "29 de julho de 2024",
   city: "São Paulo, SP",
-  text: "Fui atendido pelo Rafael exelente atendimento, melhor custo benefício de toda região, o atendimento e ótimo desde fechar a venda até o pós venda !!",
+  text: "Fui muito bem atendida pela equipe, excelente atendimento, melhor custo benefício de toda região! O atendimento é ótimo desde fechar a venda até o pós venda!",
   rating: 5,
   initials: "FR"
 }, {
   name: "Flávia Fern Roque",
   date: "12 de outubro de 2024",
   city: "São Paulo, SP",
-  text: "Meu lavatório ficou lindo!! Fui super bem atendido, destaque especial ao vendedor Odair, muito profissional e gentil. Recomendo!!",
+  text: "Meu lavatório ficou lindo!! Fui super bem atendida, destaque especial para a equipe de vendas, muito profissional e gentil. Recomendo!!",
   rating: 5,
   initials: "FR"
 }, {
   name: "Lisandra Duarte",
   date: "03 de setembro de 2024",
   city: "São Paulo, SP",
-  text: "Atendimento rápido e preço justo. Destaque para a instalação do sr Manuel, muito cuidadoso, amável e organizado. Parabéns!",
+  text: "Atendimento rápido e preço justo. Destaque para a equipe de instalação, muito cuidadosos, amáveis e organizados. Parabéns!",
   rating: 5,
   initials: "LD"
 }, {
