@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { useLeadPopup } from "@/contexts/LeadPopupContext";
 import project1 from "@/assets/project-11.webp";
 import project2 from "@/assets/project-12.webp";
 import project3 from "@/assets/project-13.webp";
@@ -13,9 +14,10 @@ import project9 from "@/assets/project-9-new.webp";
 import project10 from "@/assets/project-10-new.webp";
 
 const Projects = () => {
+  const { openPopup } = useLeadPopup();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const projects = [project1, project2, project3, project4, project5, project6, project7, project8, project9, project10];
-  
+
   const gridRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const hasAutoScrolledRef = useRef(false);
@@ -24,13 +26,11 @@ const Projects = () => {
   useEffect(() => {
     if (!gridRef.current || !sectionRef.current) return;
 
-    // Check conditions once on mount, not in callback
     const isMobile = window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     if (!isMobile || prefersReducedMotion || hasAutoScrolledRef.current) return;
 
-    // Cache scroll amount once before observer
     const firstChild = gridRef.current.children[0] as HTMLElement | undefined;
     const scrollAmount = firstChild ? firstChild.offsetWidth + 16 : 200;
 
@@ -51,7 +51,6 @@ const Projects = () => {
               isAutoScrollingRef.current = false;
             };
 
-            // Use requestAnimationFrame to batch with next paint
             requestAnimationFrame(() => autoScroll());
           }
         });
@@ -67,58 +66,82 @@ const Projects = () => {
 
     gridRef.current.addEventListener('touchstart', handleUserInteraction, { passive: true });
     const gridElement = gridRef.current;
-    
+
     return () => {
       observer.disconnect();
       gridElement?.removeEventListener('touchstart', handleUserInteraction);
     };
   }, []);
 
-  return <>
+  return (
+    <>
       <section ref={sectionRef} id="projetos" className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-4 text-center">CONFIRA  ALGUNS  PROJETOS</h2>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-4 text-center">
+            CONFIRA ALGUNS PROJETOS
+          </h2>
           <p className="font-sans text-center text-primary mb-8">
             Toque nas imagens para ampliar
           </p>
 
-          <div 
+          <div
             ref={gridRef}
             className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none px-4 md:px-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {projects.map((project, index) => <div key={index} className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative border-2 border-accent hover:brightness-105 transition-all snap-start flex-shrink-0 w-[calc(50vw-2rem)] md:w-auto md:min-w-0" onClick={() => setSelectedImage(project)}>
-                <img 
-                  src={project} 
-                  alt={`Projeto ${index + 1}`} 
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative border-2 border-accent hover:brightness-105 transition-all snap-start flex-shrink-0 w-[calc(50vw-2rem)] md:w-auto md:min-w-0"
+                onClick={() => setSelectedImage(project)}
+              >
+                <img
+                  src={project}
+                  alt={`Projeto ${index + 1}`}
                   width="1080"
                   height="1080"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>)}
+              </div>
+            ))}
           </div>
-          
+
           <div className="flex justify-center mt-8">
-            <Button variant="premium" size="lg" asChild>
-              <a href="https://wa.me/5519998469597?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                FAÇA SEU ORÇAMENTO
-              </a>
+            <Button variant="premium" size="lg" onClick={openPopup}>
+              <MessageCircle className="h-5 w-5" />
+              FAÇA SEU ORÇAMENTO
             </Button>
           </div>
         </div>
       </section>
 
-      {selectedImage && <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: 'hsl(43 75% 31% / 0.95)' }} onClick={() => setSelectedImage(null)}>
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ backgroundColor: 'hsl(43 75% 31% / 0.95)' }}
+          onClick={() => setSelectedImage(null)}
+        >
           <div className="relative max-w-6xl max-h-[90vh]">
-            <button onClick={() => setSelectedImage(null)} className="absolute -top-12 right-0 transition-all text-4xl font-sans" style={{ color: 'hsl(40 78% 95%)' }} aria-label="Fechar">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-12 right-0 transition-all text-4xl font-sans"
+              style={{ color: 'hsl(40 78% 95%)' }}
+              aria-label="Fechar"
+            >
               ×
             </button>
-            <img src={selectedImage} alt="Projeto ampliado" className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-[var(--shadow-xl)] border-2 border-accent" />
+            <img
+              src={selectedImage}
+              alt="Projeto ampliado"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-[var(--shadow-xl)] border-2 border-accent"
+            />
           </div>
-        </div>}
-    </>;
+        </div>
+      )}
+    </>
+  );
 };
+
 export default Projects;
