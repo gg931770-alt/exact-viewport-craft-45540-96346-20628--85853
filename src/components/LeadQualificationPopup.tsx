@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLeadPopup } from "@/contexts/LeadPopupContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, Briefcase, Scissors } from "lucide-react";
+import { ArrowLeft, Briefcase, Scissors } from "lucide-react";
 
-type Step = "question1" | "question2" | "rejected";
+type Step = "question1" | "question2";
 
 const LeadQualificationPopup = () => {
   const { isOpen, closePopup } = useLeadPopup();
   const [step, setStep] = useState<Step>("question1");
+  const navigate = useNavigate();
 
   const handleClose = () => {
     closePopup();
@@ -19,7 +20,8 @@ const LeadQualificationPopup = () => {
     if (type === "complete") {
       setStep("question2");
     } else {
-      setStep("rejected");
+      handleClose();
+      navigate("/nao-atendemos");
     }
   };
 
@@ -33,7 +35,7 @@ const LeadQualificationPopup = () => {
   };
 
   const handleBack = () => {
-    if (step === "question2" || step === "rejected") {
+    if (step === "question2") {
       setStep("question1");
     }
   };
@@ -59,13 +61,13 @@ const LeadQualificationPopup = () => {
             <div className="space-y-3">
               <button
                 onClick={() => handleProjectType("complete")}
-                className="w-full p-4 rounded-lg border-2 border-accent bg-gradient-to-r from-primary to-primary/90 text-white hover:brightness-110 transition-all text-left"
+                className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
               >
                 <div className="flex items-start gap-3">
-                  <Briefcase className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                  <Briefcase className="h-5 w-5 mt-0.5 flex-shrink-0 text-primary" />
                   <div className="min-w-0">
-                    <span className="font-semibold block text-sm sm:text-base">Projeto completo</span>
-                    <span className="text-xs sm:text-sm opacity-90 block mt-1 leading-relaxed">
+                    <span className="font-semibold text-primary block text-sm sm:text-base">Projeto completo</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground block mt-1 leading-relaxed">
                       Bancada, ilha, banheiro, escada, área gourmet, entre outros
                     </span>
                   </div>
@@ -137,43 +139,6 @@ const LeadQualificationPopup = () => {
           </div>
         )}
 
-        {step === "rejected" && (
-          <div className="p-5 sm:p-6">
-            <button
-              onClick={handleBack}
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              <span>Voltar</span>
-            </button>
-
-            <div className="text-center space-y-4">
-              <div className="w-14 h-14 mx-auto bg-accent/30 rounded-full flex items-center justify-center">
-                <CheckCircle2 className="h-7 w-7 text-primary" />
-              </div>
-
-              <h3 className="font-serif text-lg sm:text-xl font-bold text-primary">
-                Agradecemos seu contato.
-              </h3>
-
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                No momento, a Marmoraria União atende exclusivamente{" "}
-                <strong className="text-primary">projetos completos</strong>, com fornecimento e instalação.
-              </p>
-
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Caso esteja buscando esse tipo de projeto, ficaremos felizes em atender você.
-              </p>
-
-              <button
-                onClick={() => setStep("question1")}
-                className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-gradient-to-r from-primary to-primary/90 text-white hover:brightness-110 transition-all font-semibold text-sm sm:text-base mt-2"
-              >
-                Tenho um projeto completo
-              </button>
-            </div>
-          </div>
-        )}
       </DialogContent>
     </Dialog>
   );
