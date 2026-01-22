@@ -2,30 +2,111 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLeadPopup } from "@/contexts/LeadPopupContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ArrowLeft, Briefcase, Scissors } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ArrowLeft, Briefcase, Scissors, User, Phone } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
-type Step = "question1" | "question2";
+type Step = "contact" | "question1" | "question2";
+
+interface LeadData {
+  name: string;
+  phone: string;
+  project_type: string | null;
+  timeline: string | null;
+}
 
 const LeadQualificationPopup = () => {
   const { isOpen, closePopup } = useLeadPopup();
-  const [step, setStep] = useState<Step>("question1");
+  const [step, setStep] = useState<Step>("contact");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const handleClose = () => {
     closePopup();
-    setTimeout(() => setStep("question1"), 300);
+    setTimeout(() => {
+      setStep("contact");
+      setName("");
+      setPhone("");
+      setErrors({});
+    }, 300);
   };
 
-  const handleProjectType = (type: "complete" | "cut") => {
+  const validateContactForm = () => {
+    const newErrors: { name?: string; phone?: string } = {};
+    
+    if (!name.trim()) {
+      newErrors.name = "Nome é obrigatório";
+    }
+    
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (!phoneDigits) {
+      newErrors.phone = "Telefone é obrigatório";
+    } else if (phoneDigits.length < 10 || phoneDigits.length > 11) {
+      newErrors.phone = "Telefone deve ter DDD + número (10 ou 11 dígitos)";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleContactSubmit = () => {
+    if (validateContactForm()) {
+      setStep("question1");
+    }
+  };
+
+  const saveLead = async (data: LeadData) => {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { error } = await (supabase as any).from("leads").insert({
+        name: data.name.trim(),
+        phone: data.phone.replace(/\D/g, ""),
+        project_type: data.project_type,
+        timeline: data.timeline,
+      });
+      
+      if (error) {
+        console.error("Error saving lead:", error);
+      }
+    } catch (err) {
+      console.error("Error saving lead:", err);
+    }
+  };
+
+  const handleProjectType = async (type: "complete" | "cut") => {
     if (type === "complete") {
       setStep("question2");
     } else {
+      await saveLead({
+        name,
+        phone,
+        project_type: "corte",
+        timeline: null,
+      });
       handleClose();
       navigate("/nao-atendemos");
     }
   };
 
-  const handleTimeline = (timeline: "30days" | "other") => {
+  const handleTimeline = async (timeline: "30days" | "30-60days" | "60plus" | "research") => {
+    const timelineMap = {
+      "30days": "ate_30_dias",
+      "30-60days": "30_a_60_dias",
+      "60plus": "mais_de_60_dias",
+      "research": "pesquisando_ideias",
+    };
+    
+    await saveLead({
+      name,
+      phone,
+      project_type: "projeto_completo",
+      timeline: timelineMap[timeline],
+    });
+    
     if (timeline === "30days") {
       window.open("https://wa.link/7owg4u", "_blank");
     } else {
@@ -37,14 +118,90 @@ const LeadQualificationPopup = () => {
   const handleBack = () => {
     if (step === "question2") {
       setStep("question1");
+    } else if (step === "question1") {
+      setStep("contact");
     }
+  };
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(formatPhone(e.target.value));
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="w-[calc(100vw-2rem)] max-w-md mx-auto p-0 gap-0 bg-card border-2 border-accent rounded-xl overflow-hidden">
+        {step === "contact" && (
+          <div className="p-5 sm:p-6">
+            <div className="text-center mb-6">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-primary mb-2">
+                Conte-nos sobre você
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Preencha seus dados para prosseguir.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="flex items-center gap-2 text-sm font-semibold text-primary mb-2">
+                  <User className="h-4 w-4" />
+                  Nome completo
+                </label>
+                <Input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Digite seu nome"
+                  className={errors.name ? "border-destructive" : ""}
+                />
+                {errors.name && (
+                  <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                )}
+              </div>
+
+              <div>
+                <label className="flex items-center gap-2 text-sm font-semibold text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  Telefone com DDD
+                </label>
+                <Input
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  placeholder="(00) 00000-0000"
+                  className={errors.phone ? "border-destructive" : ""}
+                />
+                {errors.phone && (
+                  <p className="text-sm text-destructive mt-1">{errors.phone}</p>
+                )}
+              </div>
+
+              <button
+                onClick={handleContactSubmit}
+                className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:brightness-110 transition-all font-semibold text-sm sm:text-base mt-2"
+              >
+                Continuar
+              </button>
+            </div>
+          </div>
+        )}
+
         {step === "question1" && (
           <div className="p-5 sm:p-6">
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>Voltar</span>
+            </button>
+
             <div className="text-center mb-6">
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-primary mb-2">
                 Conte-nos sobre seu projeto
@@ -105,27 +262,27 @@ const LeadQualificationPopup = () => {
             <div className="space-y-2">
               <button
                 onClick={() => handleTimeline("30days")}
-                className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-gradient-to-r from-primary to-primary/90 text-white hover:brightness-110 transition-all font-semibold text-sm sm:text-base"
+                className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:brightness-110 transition-all font-semibold text-sm sm:text-base"
               >
                 Até 30 dias
               </button>
 
               <button
-                onClick={() => handleTimeline("other")}
+                onClick={() => handleTimeline("30-60days")}
                 className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all font-semibold text-primary text-sm sm:text-base"
               >
                 De 30 a 60 dias
               </button>
 
               <button
-                onClick={() => handleTimeline("other")}
+                onClick={() => handleTimeline("60plus")}
                 className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all font-semibold text-primary text-sm sm:text-base"
               >
                 Mais de 60 dias
               </button>
 
               <button
-                onClick={() => handleTimeline("other")}
+                onClick={() => handleTimeline("research")}
                 className="w-full py-3 px-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all font-semibold text-primary text-sm sm:text-base"
               >
                 Apenas pesquisando ideias
