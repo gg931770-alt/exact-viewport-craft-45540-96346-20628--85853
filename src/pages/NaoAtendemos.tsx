@@ -13,20 +13,11 @@ const NaoAtendemos = () => {
           Agradecemos seu interesse!
         </h1>
 
-        <div className="space-y-4 text-muted-foreground">
-          <p className="leading-relaxed">
-            No momento, a <strong className="text-primary">Marmoraria União</strong> atende exclusivamente{" "}
-            <strong className="text-primary">projetos completos</strong>, com fornecimento e instalação.
-          </p>
-
-          <p className="leading-relaxed">
-            Infelizmente, não trabalhamos com cortes avulsos de pedras.
-          </p>
-
-          <p className="leading-relaxed">
-            Caso esteja buscando um projeto completo, ficaremos felizes em atender você!
-          </p>
-        </div>
+        <p className="text-muted-foreground leading-relaxed">
+          Agradecemos seu interesse, porém a <strong className="text-primary">Marmoraria União</strong> atende apenas{" "}
+          <strong className="text-primary">projetos completos</strong>, como bancadas, áreas gourmet, reformas de banheiros, entre outros.
+          Não realizamos cortes avulsos. Caso deseje um orçamento para um projeto completo, entre em contato conosco.
+        </p>
 
         <Link
           to="/"
