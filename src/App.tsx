@@ -21,8 +21,8 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <LeadQualificationPopup />
           <BrowserRouter>
+            <LeadQualificationPopup />
             <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Carregando...</div>}>
               <Routes>
                 <Route path="/" element={<Index />} />
