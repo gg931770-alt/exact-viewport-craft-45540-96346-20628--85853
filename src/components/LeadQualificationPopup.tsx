@@ -63,14 +63,9 @@ const LeadQualificationPopup = () => {
                 onClick={() => handleProjectType("complete")}
                 className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
               >
-                <div className="flex items-start gap-3">
-                  <Briefcase className="h-5 w-5 mt-0.5 flex-shrink-0 text-primary" />
-                  <div className="min-w-0">
-                    <span className="font-semibold text-primary block text-sm sm:text-base">Projeto completo</span>
-                    <span className="text-xs sm:text-sm text-muted-foreground block mt-1 leading-relaxed">
-                      Bancada, ilha, banheiro, escada, área gourmet, entre outros
-                    </span>
-                  </div>
+                <div className="flex items-center gap-3">
+                  <Briefcase className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <span className="font-semibold text-primary text-sm sm:text-base">Projeto completo</span>
                 </div>
               </button>
 
@@ -78,8 +73,8 @@ const LeadQualificationPopup = () => {
                 onClick={() => handleProjectType("cut")}
                 className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
               >
-                <div className="flex items-start gap-3">
-                  <Scissors className="h-5 w-5 mt-0.5 flex-shrink-0 text-primary" />
+                <div className="flex items-center gap-3">
+                  <Scissors className="h-5 w-5 flex-shrink-0 text-primary" />
                   <span className="font-semibold text-primary text-sm sm:text-base">Corte de pedra</span>
                 </div>
               </button>
