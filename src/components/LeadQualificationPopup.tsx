@@ -232,7 +232,7 @@ const LeadQualificationPopup = () => {
               >
                 <div className="flex items-center gap-3">
                   <Scissors className="h-5 w-5 flex-shrink-0 text-primary" />
-                  <span className="font-semibold text-primary text-sm sm:text-base">Corte de pedra</span>
+                  <span className="font-semibold text-primary text-sm sm:text-base" translate="no">Corte de Pedra</span>
                 </div>
               </button>
             </div>
