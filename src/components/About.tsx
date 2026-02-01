@@ -17,12 +17,10 @@ const About = () => {
               <span translate="no">A União Mármores</span>{" "}nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de revestimento com pedras exóticas.
             </p>
 
-            <p className="mb-5">
-              Enquanto o pai transformava ambientes com sua habilidade com mais de 30 anos de experiência, seu filho já traz uma nova tendência em esculpir estas pedras de um jeito totalmente personalizado para cada obra e ambiente.
-            </p>
+            <p className="mb-5">Hoje, somos especialistas em travertinos, mármores exclusivos, quartzitos e pedras exóticas, atendendo arquitetos, construtoras e proprietários que buscam diferenciação, qualidade técnica e execução impecável.</p>
 
             <p className="mb-5">
-              Hoje, a empresa vem mantendo seu legado familiar e exclusivo. Essa evolução trouxe uma nova era para a empresa, que agora foca na criação de peças personalizadas com materiais de alta qualidade, como <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos, Quartzitos e Granitos</strong>.
+            <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos, Quartzitos e Granitos</strong>.
             </p>
 
             <p>
