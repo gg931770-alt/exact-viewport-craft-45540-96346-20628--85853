@@ -3,114 +3,92 @@ import quartzImg from "@/assets/material-quartz.webp";
 import marbleImg from "@/assets/material-marble.webp";
 import porcelainImg from "@/assets/material-porcelain.webp";
 import graniteImg from "@/assets/material-granite.webp";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useEffect, useRef, useState } from "react";
-import type { CarouselApi } from "@/components/ui/carousel";
+import { ChevronRight } from "lucide-react";
 
 const materials = [
-  { name: "QUARTZO", image: quartzImg },
-  { name: "MÁRMORE", image: marbleImg },
-  { name: "GRANITO", image: graniteImg },
-  { name: "PRIMER", image: porcelainImg },
-  { name: "Quartzito", image: marbleImg },
+  {
+    name: "Quartzo",
+    image: quartzImg,
+    description: "O Quartzo une sofisticação e durabilidade, ideal para bancadas, pisos e revestimentos, trazendo uma elegância moderna aos ambientes.",
+  },
+  {
+    name: "Mármore",
+    image: marbleImg,
+    description: "O Mármore é uma pedra de tons únicos e veios naturais, ideal para quem busca a textura clássica e elegância atemporal.",
+  },
+  {
+    name: "Granito",
+    image: graniteImg,
+    description: "O Granito oferece beleza única, alta durabilidade e resistência, ideal para cozinhas, banheiros e áreas externas.",
+  },
+  {
+    name: "Porcelanato",
+    image: porcelainImg,
+    description: "O Porcelanato é um revestimento versátil de alta resistência, ideal para pisos, paredes e bancadas com elegância.",
+  },
+  {
+    name: "Lâminas Ultra Compactas",
+    image: ultracompactImg,
+    description: "Uma ótima alternativa para quem busca qualidade e praticidade combinando a beleza das pedras naturais com alta resistência.",
+  },
 ];
 
 const Materials = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const sectionRef = useRef<HTMLElement>(null);
-  const hasAutoScrolledRef = useRef(false);
-  const isAutoScrollingRef = useRef(false);
-
-  useEffect(() => {
-    if (!api || !sectionRef.current) return;
-
-    // Check conditions once on mount, not in callback
-    const isMobile = window.innerWidth < 768;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (!isMobile || prefersReducedMotion || hasAutoScrolledRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAutoScrolledRef.current) {
-            hasAutoScrolledRef.current = true;
-            isAutoScrollingRef.current = true;
-
-            // Use requestAnimationFrame to batch with next paint
-            requestAnimationFrame(() => {
-              setTimeout(() => {
-                if (isAutoScrollingRef.current && api) {
-                  api.scrollNext();
-                }
-                isAutoScrollingRef.current = false;
-              }, 150);
-            });
-          }
-        });
-      },
-      { threshold: 0.5 }
+  const handleWhatsAppClick = (materialName: string) => {
+    const message = encodeURIComponent(
+      `Olá! Gostaria de saber mais sobre ${materialName} para meu projeto.`
     );
-
-    observer.observe(sectionRef.current);
-
-    const handleUserInteraction = () => {
-      isAutoScrollingRef.current = false;
-    };
-
-    api.on('pointerDown', handleUserInteraction);
-    
-    return () => {
-      observer.disconnect();
-      api.off('pointerDown', handleUserInteraction);
-    };
-  }, [api]);
+    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
+  };
 
   return (
-    <section ref={sectionRef} id="materiais" className="py-12 md:py-16 bg-secondary">
+    <section id="materiais" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-8 text-center">
-          PEDRAS QUE TRABALHAMOS
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-12 md:mb-16">
+          Conheça nossos revestimentos
         </h2>
-        
-        <div className="max-w-6xl mx-auto">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "center",
-              loop: false,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {materials.map((material) => (
-                <CarouselItem key={material.name} className="pl-4 basis-[85%] sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
-                  <div 
-                    className="group relative overflow-hidden rounded-lg shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-elegant)] transition-all cursor-pointer border-2 border-accent hover:brightness-105"
-                  >
-                    <div className="aspect-[3/4] overflow-hidden">
-                      <img 
-                        src={material.image} 
-                        alt={material.name}
-                        width="697"
-                        height="928"
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover scale-90 group-hover:scale-95 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center py-3 px-4 bg-primary/90">
-                      <h3 className="font-sans text-lg md:text-xl font-bold text-center text-white" translate="no">
-                        {material.name}
-                      </h3>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-0 backdrop-blur border-2 md:-left-12" style={{ backgroundColor: 'hsl(40 78% 95% / 0.9)', borderColor: 'hsl(45 65% 53%)', color: 'hsl(43 75% 31%)' }} aria-label="Material anterior" />
-            <CarouselNext className="right-0 backdrop-blur border-2 md:-right-12" style={{ backgroundColor: 'hsl(40 78% 95% / 0.9)', borderColor: 'hsl(45 65% 53%)', color: 'hsl(43 75% 31%)' }} aria-label="Próximo material" />
-          </Carousel>
+
+        <div className="flex flex-col gap-4 md:gap-6 max-w-5xl">
+          {materials.map((material) => (
+            <div
+              key={material.name}
+              className="group flex flex-col sm:flex-row items-stretch gap-4 sm:gap-6 p-4 sm:p-5 bg-card rounded-lg border border-border hover:border-accent/50 hover:shadow-[var(--shadow-elegant)] transition-all duration-300"
+            >
+              {/* Image */}
+              <div className="w-full sm:w-40 md:w-48 flex-shrink-0">
+                <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg">
+                  <img
+                    src={material.image}
+                    alt={material.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="flex-1 flex flex-col justify-center min-w-0">
+                <h3 className="font-serif text-xl md:text-2xl font-bold text-accent mb-2">
+                  {material.name}
+                </h3>
+                <p className="text-foreground/70 text-sm md:text-base leading-relaxed line-clamp-3">
+                  {material.description}
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="flex items-center justify-end sm:justify-center flex-shrink-0 pt-2 sm:pt-0">
+                <button
+                  onClick={() => handleWhatsAppClick(material.name)}
+                  className="inline-flex items-center gap-1 px-4 py-2 text-sm font-sans font-medium text-accent border border-accent rounded hover:bg-accent hover:text-white transition-colors duration-200 whitespace-nowrap"
+                >
+                  VEJA MAIS
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
