@@ -23,8 +23,7 @@ const About = () => {
               
             </p>
 
-            <p translate="no">
-              Cada projeto é feito sob medida, refletindo a individualidade de cada cliente. Com um compromisso inabalável com a <strong className="text-primary">qualidade e atendimento personalizado</strong>, a empresa se destaca no mercado, olhando para o futuro e buscando expandir sua presença e incorporar novas tecnologias.
+            <p translate="no">Cada projeto é feito sob medida, refletindo a individualidade de cada cliente. Com um compromisso inabalável com a qualidade e atendimento personalizado.<strong className="text-primary">qualidade e atendimento personalizado</strong>, a empresa se destaca no mercado, olhando para o futuro e buscando expandir sua presença e incorporar novas tecnologias.
             </p>
           </div>
 
