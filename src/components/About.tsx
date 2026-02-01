@@ -13,26 +13,23 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="space-y-6 font-sans text-base md:text-lg text-primary leading-relaxed max-w-prose">
-            <p className="mb-5">
-              <span translate="no">A União Mármores</span>{" "}nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de revestimento com pedras exóticas.
+            <p className="mb-5" translate="no">
+              A União Mármores nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de revestimento com pedras exóticas.
             </p>
 
-            <p className="mb-5">Hoje, somos especialistas em travertinos, mármores exclusivos, quartzitos e pedras exóticas, atendendo arquitetos, construtoras e proprietários que buscam diferenciação, qualidade técnica e execução impecável.</p>
+            <p className="mb-5" translate="no">Hoje, somos especialistas em travertinos, mármores exclusivos, quartzitos e pedras exóticas, atendendo arquitetos, construtoras e proprietários que buscam diferenciação, qualidade técnica e execução impecável.</p>
 
-            <p className="mb-5">
-            <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos, Quartzitos e Granitos</strong>.
+            <p className="mb-5" translate="no">
+              <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos, Quartzitos e Granitos.</strong>
             </p>
 
-            <p>
+            <p translate="no">
               Cada projeto é feito sob medida, refletindo a individualidade de cada cliente. Com um compromisso inabalável com a <strong className="text-primary">qualidade e atendimento personalizado</strong>, a empresa se destaca no mercado, olhando para o futuro e buscando expandir sua presença e incorporar novas tecnologias.
             </p>
           </div>
 
           <div className="relative">
             <div className="bg-card p-8 rounded-lg border-2 border-accent shadow-[var(--shadow-lg)]">
-              <h3 className="font-serif text-2xl font-bold text-primary mb-4">
-
-              </h3>
 
               <div className="aspect-[4/3] overflow-hidden rounded-lg shadow-[var(--shadow-elegant)] mb-6 border-2 border-accent">
                 <img src={teamPhoto} alt="Logo União Mármores" width="1920" height="1080" loading="lazy" decoding="async" className="w-full h-full object-cover" />
