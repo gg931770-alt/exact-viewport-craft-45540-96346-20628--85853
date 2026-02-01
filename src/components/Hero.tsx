@@ -47,7 +47,7 @@ const Hero = () => {
           <p className="font-sans text-lg md:text-xl mb-8 leading-relaxed text-center md:text-left" style={{
           color: 'hsl(40 40% 93%)'
         }}>
-            Solicite seu orçamento hoje e garanta a melhor qualidade de materiais premium para sua obra
+            Especialistas em travertino romano, branco Paraná, mármores importados e pedras exóticas. Da especificação à instalação impecável, para projetos residenciais e comerciais de alto padrão em Campinas e região.
           </p>
 
           <div className="flex flex-col gap-4 justify-center md:justify-start items-center md:items-start">
