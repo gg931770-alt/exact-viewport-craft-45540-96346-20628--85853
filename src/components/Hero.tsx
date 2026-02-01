@@ -39,7 +39,7 @@ const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 py-24 md:py-32">
         <div className="max-w-3xl mx-auto md:mx-0">
-          <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight text-center lg:text-6xl md:text-left" style={{
+          <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight text-center lg:text-5xl md:text-justify" style={{
           color: 'hsl(40 78% 95%)',
           textShadow: '2px 2px 8px rgba(0,0,0,0.4)'
         }}>TRANSFORMAMOS PEDRAS EM AMBIENTES DE ARQUITETURA EXCLUSIVA</h1>
