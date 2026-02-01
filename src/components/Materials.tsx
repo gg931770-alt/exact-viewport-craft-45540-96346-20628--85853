@@ -1,35 +1,47 @@
 import ultracompactImg from "@/assets/material-ultracompact.webp";
 import quartzImg from "@/assets/material-quartz.webp";
 import marbleImg from "@/assets/material-marble.webp";
-import porcelainImg from "@/assets/material-porcelain.webp";
 import graniteImg from "@/assets/material-granite.webp";
 import { ChevronRight } from "lucide-react";
 
+// Placeholder para imagens que serão adicionadas depois
+const placeholderImg = "";
+
 const materials = [
   {
-    name: "Quartzo",
-    image: quartzImg,
-    description: "O Quartzo une sofisticação e durabilidade, ideal para bancadas, pisos e revestimentos, trazendo uma elegância moderna aos ambientes.",
+    name: "Travertino Romano",
+    image: marbleImg, // Imagem temporária - substituir pela correta
+    description: "O Travertino Romano une sofisticação e durabilidade, ideal para pisos, paredes e bancadas, trazendo uma elegância atemporal.",
   },
   {
-    name: "Mármore",
-    image: marbleImg,
-    description: "O Mármore é uma pedra de tons únicos e veios naturais, ideal para quem busca a textura clássica e elegância atemporal.",
+    name: "Travertino Silver",
+    image: quartzImg, // Imagem temporária - substituir pela correta
+    description: "O Travertino Silver é uma pedra de tons acinzentados, ideal para quem busca a textura do travertino e outra tonalidade.",
   },
   {
-    name: "Granito",
-    image: graniteImg,
-    description: "O Granito oferece beleza única, alta durabilidade e resistência, ideal para cozinhas, banheiros e áreas externas.",
+    name: "Hijau",
+    image: placeholderImg, // Aguardando imagem
+    description: "A pedra Hijau oferece beleza única, efeito paradisíaco na água, alta durabilidade e resistência à umidade, ideal para piscinas e spas.",
   },
   {
-    name: "Porcelanato",
-    image: porcelainImg,
-    description: "O Porcelanato é um revestimento versátil de alta resistência, ideal para pisos, paredes e bancadas com elegância.",
+    name: "Hitam",
+    image: placeholderImg, // Aguardando imagem
+    description: "A pedra Hitam é uma rocha natural vulcânica de tom escuro, ideal para pisos, revestimentos, piscinas e áreas externas com elegância.",
+  },
+  {
+    name: "Aquamarine",
+    image: placeholderImg, // Aguardando imagem
+    description: "A pedra Aquamarine é uma rocha natural em tons azul-esverdeados, ideal para piscinas, revestimentos e paisagismo.",
+  },
+  {
+    name: "Rock Face",
+    image: graniteImg, // Imagem temporária - substituir pela correta
+    description: "O acabamento Rock Face oferece um visual rústico e imponente, ideal para fachadas e muros, garantindo durabilidade e sofisticação.",
   },
   {
     name: "Lâminas Ultra Compactas",
     image: ultracompactImg,
-    description: "Uma ótima alternativa para quem busca qualidade e praticidade combinando a beleza das pedras naturais com alta resistência.",
+    description: "Uma ótima alternativa para quem busca qualidade e praticidade combinando a beleza das pedras naturais com uma superfície lisa.",
   },
 ];
 
@@ -42,7 +54,7 @@ const Materials = () => {
   };
 
   return (
-    <section id="materiais" className="py-16 md:py-24 bg-background">
+    <section id="materiais" className="py-16 md:py-24 bg-background" translate="no">
       <div className="container mx-auto px-4">
         <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-12 md:mb-16">
           Conheça nossos revestimentos
@@ -56,14 +68,20 @@ const Materials = () => {
             >
               {/* Image */}
               <div className="w-full sm:w-40 md:w-48 flex-shrink-0">
-                <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg">
-                  <img
-                    src={material.image}
-                    alt={material.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-lg bg-secondary">
+                  {material.image ? (
+                    <img
+                      src={material.image}
+                      alt={material.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+                      Imagem pendente
+                    </div>
+                  )}
                 </div>
               </div>
 
