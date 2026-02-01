@@ -20,7 +20,7 @@ const About = () => {
             <p className="mb-5" translate="no">Hoje, somos especialistas em travertinos, mármores exclusivos, quartzitos e pedras exóticas, atendendo arquitetos, construtoras e proprietários que buscam diferenciação, qualidade técnica e execução impecável.</p>
 
             <p className="mb-5" translate="no">
-              <strong className="text-primary">Pedras Ultracompactas, Mármores, Quartzos, Quartzitos e Granitos.</strong>
+              
             </p>
 
             <p translate="no">
