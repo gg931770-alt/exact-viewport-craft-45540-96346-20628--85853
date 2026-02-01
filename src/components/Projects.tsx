@@ -69,11 +69,8 @@ const Projects = () => {
   return <>
       <section ref={sectionRef} id="projetos" className="py-12 md:py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary mb-4 text-center">
-            CONFIRA ALGUNS PROJETOS
-          </h2>
-          <p className="font-sans text-center text-primary mb-8 text-xs">CADA PROJETO, UMA ASSINATURA DE EXCLUSIVIDADE
-Toque nas imagens para ampliar</p>
+          <h2 className="font-serif text-3xl font-bold text-primary mb-4 text-center md:text-2xl">CADA PROJETO, UMA ASSINATURA DE EXCLUSIVIDADE</h2>
+          <p className="font-sans text-center text-primary mb-8 text-xs"> Toque nas imagens para ampliar</p>
 
           <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none px-4 md:px-0" style={{
           scrollbarWidth: 'none',
