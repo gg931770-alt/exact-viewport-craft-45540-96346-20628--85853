@@ -44,7 +44,7 @@ const Hero = () => {
           textShadow: '2px 2px 8px rgba(0,0,0,0.4)'
         }}>TRANSFORMAMOS PEDRAS EM AMBIENTES DE ARQUITETURA EXCLUSIVA</h1>
 
-          <p className="font-sans text-lg md:text-xl mb-8 leading-relaxed text-center md:text-left" style={{
+          <p className="font-sans md:text-xl mb-8 leading-relaxed text-center md:text-left text-xs" style={{
           color: 'hsl(40 40% 93%)'
         }}>
             Especialistas em travertino romano, branco Paraná, mármores importados e pedras exóticas. Da especificação à instalação impecável, para projetos residenciais e comerciais de alto padrão em Campinas e região.
