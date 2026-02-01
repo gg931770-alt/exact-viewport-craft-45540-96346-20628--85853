@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLeadPopup } from "@/contexts/LeadPopupContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -25,9 +25,24 @@ const LeadQualificationPopup = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const resetTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimeoutRef.current) {
+        window.clearTimeout(resetTimeoutRef.current);
+        resetTimeoutRef.current = null;
+      }
+    };
+  }, []);
+
   const handleClose = () => {
     closePopup();
-    setTimeout(() => {
+    if (resetTimeoutRef.current) {
+      window.clearTimeout(resetTimeoutRef.current);
+      resetTimeoutRef.current = null;
+    }
+    resetTimeoutRef.current = window.setTimeout(() => {
       setStep("contact");
       setName("");
       setPhone("");
@@ -136,7 +151,14 @@ const LeadQualificationPopup = () => {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog
+      open={isOpen}
+      onOpenChange={(open) => {
+        // Only run close logic when Radix is requesting a close.
+        // Prevents extra close cycles that can lead to inconsistent unmounts.
+        if (!open) handleClose();
+      }}
+    >
       <DialogContent className="w-[calc(100vw-2rem)] max-w-md mx-auto p-0 gap-0 bg-card border-2 border-accent rounded-xl overflow-hidden">
         {step === "contact" && (
           <div className="p-5 sm:p-6">
