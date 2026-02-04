@@ -23,8 +23,7 @@ const About = () => {
               
             </p>
 
-            <p translate="no"><strong className="text-primary">qualidade e atendimento personalizado</strong>, a empresa se destaca no mercado, olhando para o futuro e buscando expandir sua presença e incorporar novas tecnologias.
-            </p>
+            <p translate="no"><strong className="text-primary">qualidade e atendimento personalizado</strong>Qualidade e atendimento personalizado</p>
           </div>
 
           <div className="relative">
