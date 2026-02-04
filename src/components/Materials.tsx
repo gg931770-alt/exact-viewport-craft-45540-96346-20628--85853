@@ -1,4 +1,4 @@
-import ultracompactImg from "@/assets/material-ultracompact.webp";
+import ultracompactImg from "@/assets/laminas-ultra-compactas.png";
 import travertinoRomanoImg from "@/assets/travertino-romano.png";
 import travertinoSilverImg from "@/assets/travertino-silver.png";
 import lizardImg from "@/assets/lizard.png";
