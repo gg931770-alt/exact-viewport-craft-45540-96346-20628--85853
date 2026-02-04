@@ -34,7 +34,7 @@ const About = () => {
                 <img src={teamPhoto} alt="Logo União Mármores" width="1920" height="1080" loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
               <Button variant="premium" size="lg" className="w-full" onClick={openPopup}>
-                FAÇA SEU ORÇAMENTO
+                FALE COM UM ESPECIALISTA
               </Button>
             </div>
           </div>
