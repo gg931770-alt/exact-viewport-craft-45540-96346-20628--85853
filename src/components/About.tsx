@@ -21,7 +21,7 @@ const About = () => {
               
             </p>
 
-            <p translate="no"><strong className="text-primary">qualidade e atendimento personalizado</strong>Qualidade e atendimento personalizado  Atendemos clientes e arquitetos que buscam uma parceria confiável, capaz de entregar resultados superiores e transformar ideias em obras de alto nível.</p>
+            
           </div>
 
           <div className="relative">
