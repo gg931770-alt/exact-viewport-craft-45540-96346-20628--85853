@@ -6,6 +6,7 @@ import tajMahalImg from "@/assets/taj-mahal.png";
 import brancoParanaImg from "@/assets/branco-parana.png";
 import rockFaceImg from "@/assets/rock-face.png";
 import { ChevronRight } from "lucide-react";
+import { useLeadPopup } from "@/contexts/LeadPopupContext";
 
 const materials = [
   {
@@ -46,12 +47,7 @@ const materials = [
 ];
 
 const Materials = () => {
-  const handleWhatsAppClick = (materialName: string) => {
-    const message = encodeURIComponent(
-      `Olá! Gostaria de saber mais sobre ${materialName} para meu projeto.`
-    );
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
-  };
+  const { openPopup } = useLeadPopup();
 
   return (
     <section id="materiais" className="py-16 md:py-24 bg-background" translate="no">
@@ -98,7 +94,7 @@ const Materials = () => {
               {/* CTA Button */}
               <div className="flex items-center justify-end sm:justify-center flex-shrink-0 pt-2 sm:pt-0">
                 <button
-                  onClick={() => handleWhatsAppClick(material.name)}
+                  onClick={openPopup}
                   className="inline-flex items-center gap-1 px-4 py-2 text-sm font-sans font-medium text-accent border border-accent rounded hover:bg-accent hover:text-white transition-colors duration-200 whitespace-nowrap"
                 >
                   VEJA MAIS
