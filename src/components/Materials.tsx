@@ -1,41 +1,41 @@
 import ultracompactImg from "@/assets/material-ultracompact.webp";
-import quartzImg from "@/assets/material-quartz.webp";
-import marbleImg from "@/assets/material-marble.webp";
-import graniteImg from "@/assets/material-granite.webp";
+import travertinoRomanoImg from "@/assets/travertino-romano.png";
+import travertinoSilverImg from "@/assets/travertino-silver.png";
+import lizardImg from "@/assets/lizard.png";
+import tajMahalImg from "@/assets/taj-mahal.png";
+import brancoParanaImg from "@/assets/branco-parana.png";
+import rockFaceImg from "@/assets/rock-face.png";
 import { ChevronRight } from "lucide-react";
-
-// Placeholder para imagens que serão adicionadas depois
-const placeholderImg = "";
 
 const materials = [
   {
     name: "Travertino Romano",
-    image: marbleImg, // Imagem temporária - substituir pela correta
+    image: travertinoRomanoImg,
     description: "O Travertino Romano une sofisticação e durabilidade, ideal para pisos, paredes e bancadas, trazendo uma elegância atemporal.",
   },
   {
     name: "Travertino Silver",
-    image: quartzImg, // Imagem temporária - substituir pela correta
+    image: travertinoSilverImg,
     description: "O Travertino Silver é uma pedra de tons acinzentados, ideal para quem busca a textura do travertino e outra tonalidade.",
   },
   {
     name: "Lizard",
-    image: placeholderImg, // Aguardando imagem
+    image: lizardImg,
     description: "O Quartzito Lizard é uma pedra exótica de tons esverdeados com veios únicos, ideal para bancadas e revestimentos que buscam exclusividade.",
   },
   {
     name: "Taj Mahal",
-    image: placeholderImg, // Aguardando imagem
+    image: tajMahalImg,
     description: "O Quartzito Taj Mahal possui tons claros e dourados com veios suaves, trazendo sofisticação atemporal para ambientes elegantes.",
   },
   {
     name: "Branco Paraná",
-    image: placeholderImg, // Aguardando imagem
+    image: brancoParanaImg,
     description: "O Granito Branco Paraná é uma pedra clássica de fundo branco com grãos finos, ideal para cozinhas e banheiros com elegância discreta.",
   },
   {
     name: "Rock Face",
-    image: graniteImg, // Imagem temporária - substituir pela correta
+    image: rockFaceImg,
     description: "O acabamento Rock Face oferece um visual rústico e imponente, ideal para fachadas e muros, garantindo durabilidade e sofisticação.",
   },
   {
