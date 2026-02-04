@@ -19,19 +19,19 @@ const materials = [
     description: "O Travertino Silver é uma pedra de tons acinzentados, ideal para quem busca a textura do travertino e outra tonalidade.",
   },
   {
-    name: "Hijau",
+    name: "Lizard",
     image: placeholderImg, // Aguardando imagem
-    description: "A pedra Hijau oferece beleza única, efeito paradisíaco na água, alta durabilidade e resistência à umidade, ideal para piscinas e spas.",
+    description: "O Quartzito Lizard é uma pedra exótica de tons esverdeados com veios únicos, ideal para bancadas e revestimentos que buscam exclusividade.",
   },
   {
-    name: "Hitam",
+    name: "Taj Mahal",
     image: placeholderImg, // Aguardando imagem
-    description: "A pedra Hitam é uma rocha natural vulcânica de tom escuro, ideal para pisos, revestimentos, piscinas e áreas externas com elegância.",
+    description: "O Quartzito Taj Mahal possui tons claros e dourados com veios suaves, trazendo sofisticação atemporal para ambientes elegantes.",
   },
   {
-    name: "Aquamarine",
+    name: "Branco Paraná",
     image: placeholderImg, // Aguardando imagem
-    description: "A pedra Aquamarine é uma rocha natural em tons azul-esverdeados, ideal para piscinas, revestimentos e paisagismo.",
+    description: "O Granito Branco Paraná é uma pedra clássica de fundo branco com grãos finos, ideal para cozinhas e banheiros com elegância discreta.",
   },
   {
     name: "Rock Face",
