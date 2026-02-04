@@ -51,8 +51,8 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col gap-4 justify-center md:justify-start items-center md:items-start">
-            <Button variant="premium" size="lg" className="text-base md:text-lg shadow-[0_4px_20px_hsl(var(--primary)/0.35)] hover:shadow-[0_6px_30px_hsl(var(--primary)/0.5)] transition-shadow duration-300" onClick={openPopup}>
-              VER COTAÇÃO 
+            <Button variant="premium" size="lg" onClick={openPopup}>
+              FALE COM UM ESPECIALISTA
             </Button>
             <Button variant="ghost" size="default" asChild className="text-cream-light hover:text-white hover:bg-white/10 border border-cream-light/30">
               <a href="#contato">

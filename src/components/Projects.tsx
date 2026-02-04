@@ -84,7 +84,7 @@ const Projects = () => {
           <div className="flex justify-center mt-8">
             <Button variant="premium" size="lg" onClick={openPopup}>
               <MessageCircle className="h-5 w-5" />
-              FAÇA SEU ORÇAMENTO
+              FALE COM UM ESPECIALISTA
             </Button>
           </div>
         </div>

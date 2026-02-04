@@ -59,7 +59,7 @@ const Contact = () => {
 
             <Button variant="premium" size="lg" className="w-full mt-6" onClick={openPopup}>
               <MessageCircle className="h-5 w-5" />
-              FAÇA SEU ORÇAMENTO
+              FALE COM UM ESPECIALISTA
             </Button>
           </div>
 
