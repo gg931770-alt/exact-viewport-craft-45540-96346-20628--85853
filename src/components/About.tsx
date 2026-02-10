@@ -13,15 +13,12 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="space-y-6 font-sans text-base md:text-lg text-primary leading-relaxed max-w-prose">
-            <p className="mb-5" translate="no">A União Mármores esta no mercado a mais de 30 anos e nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de revestimento com pedras exóticas.</p>
+            <p className="mb-4 md:mb-5" translate="no">A União Mármores está no mercado há mais de 30 anos e nasceu da paixão de um pai pelas pedras ornamentais e da determinação de seu filho em inovar na indústria de revestimentos com pedras exóticas.</p>
 
-            <p className="mb-5" translate="no">Hoje, somos especialistas em travertinos, mármores exclusivos, quartzitos e pedras exóticas. Cada projeto é executado com técnica apurada, atenção aos detalhes e foco absoluto no acabamento. </p>
+            <p className="mb-4 md:mb-5" translate="no">Hoje, somos especialistas em travertinos, mármores exclusivos, quartzitos e pedras exóticas. Cada projeto é executado com técnica apurada, atenção aos detalhes e foco absoluto no acabamento.</p>
 
-            <p className="mb-5" translate="no">
-              
-            </p>
+            <p translate="no">Prezamos pela qualidade e por um atendimento personalizado. Atendemos clientes e arquitetos que buscam uma parceria confiável, capaz de entregar resultados superiores e transformar ideias em obras de alto nível.</p>
 
-            
           </div>
 
           <div className="relative">
