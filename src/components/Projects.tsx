@@ -17,7 +17,7 @@ const Projects = () => {
     openPopup
   } = useLeadPopup();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const newProjects = ["https://i.postimg.cc/3JByHjMr/1.png", "https://i.postimg.cc/qBGBtk15/2.png", "https://i.postimg.cc/dVgJMD0J/3.png", "https://i.postimg.cc/zBFNRjFR/4.png", "https://i.postimg.cc/c4HWrfgv/5.png", "https://i.postimg.cc/8C8gK3y4/6.png", "https://i.postimg.cc/q7cSm76k/8.png", "https://i.postimg.cc/65GHjQFY/9.png"];
+  const newProjects = ["https://i.postimg.cc/3JByHjMr/1.png", "https://i.postimg.cc/qBGBtk15/2.png", "https://i.postimg.cc/dVgJMD0J/3.png", "https://i.postimg.cc/zBFNRjFR/4.png", "https://i.postimg.cc/c4HWrfgv/5.png", "https://i.postimg.cc/8C8gK3y4/6.png", "https://i.postimg.cc/q7cSm76k/8.png", "https://i.postimg.cc/65GHjQFY/9.png", "https://i.postimg.cc/s2B7xdyK/12.png", "https://i.postimg.cc/d1rCR2hR/13.png"];
   const projects = [...newProjects, project1, project2, project3, project4, project5, project6, project7, project8, project9, project10];
   const gridRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
