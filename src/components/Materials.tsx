@@ -1,10 +1,10 @@
-import ultracompactImg from "@/assets/laminas-ultra-compactas.png";
-import travertinoRomanoImg from "@/assets/travertino-romano.png";
-import travertinoSilverImg from "@/assets/travertino-silver.png";
-import lizardImg from "@/assets/lizard.png";
-import tajMahalImg from "@/assets/taj-mahal.png";
-import brancoParanaImg from "@/assets/branco-parana.png";
-import rockFaceImg from "@/assets/rock-face.png";
+const travertinoRomanoImg = "https://i.postimg.cc/C5LmXmB3/Travertino-Romano.png";
+const travertinoSilverImg = "https://i.postimg.cc/GhfqgPcX/Travertino-Silver.png";
+const lizardImg = "https://i.postimg.cc/zBqjH0jr/Lizard.png";
+const tajMahalImg = "https://i.postimg.cc/vTNLjMd8/Taj-Mahal.png";
+const brancoParanaImg = "https://i.postimg.cc/JzJcT9YV/Branco-Parana.png";
+const rockFaceImg = "https://i.postimg.cc/T1pnnS5H/Rock-Face.png";
+const ultracompactImg = "https://i.postimg.cc/2S4hdn33/Laminas-Ultra-Compactas.png";
 import { ChevronRight } from "lucide-react";
 import { useLeadPopup } from "@/contexts/LeadPopupContext";
 
