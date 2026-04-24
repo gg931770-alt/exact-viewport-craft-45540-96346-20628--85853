@@ -244,7 +244,7 @@ const LeadQualificationPopup = () => {
               >
                 <div className="flex items-center gap-3">
                   <Briefcase className="h-5 w-5 flex-shrink-0 text-primary" />
-                  <span className="font-semibold text-primary text-sm sm:text-base">Projeto completo</span>
+                  <span className="font-semibold text-primary text-sm sm:text-base">Projeto Residencial Completo</span>
                 </div>
               </button>
 
