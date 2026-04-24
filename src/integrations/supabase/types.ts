@@ -20,6 +20,7 @@ export type Database = {
           id: string
           name: string
           phone: string
+          project_stage: string | null
           project_type: string | null
           timeline: string | null
         }
@@ -28,6 +29,7 @@ export type Database = {
           id?: string
           name: string
           phone: string
+          project_stage?: string | null
           project_type?: string | null
           timeline?: string | null
         }
@@ -36,6 +38,7 @@ export type Database = {
           id?: string
           name?: string
           phone?: string
+          project_stage?: string | null
           project_type?: string | null
           timeline?: string | null
         }
