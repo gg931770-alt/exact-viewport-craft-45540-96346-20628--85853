@@ -22,6 +22,8 @@ const LeadQualificationPopup = () => {
   const [step, setStep] = useState<Step>("contact");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [projectType, setProjectType] = useState<string | null>(null);
+  const [projectStage, setProjectStage] = useState<string | null>(null);
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const navigate = useNavigate();
   const { toast } = useToast();
