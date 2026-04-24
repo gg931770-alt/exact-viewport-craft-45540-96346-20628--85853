@@ -3,16 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { useLeadPopup } from "@/contexts/LeadPopupContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Briefcase, Scissors, User, Phone } from "lucide-react";
+import { ArrowLeft, Briefcase, Building2, Scissors, User, Phone, Hammer, Construction, Wrench } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-type Step = "contact" | "question1" | "question2";
+type Step = "contact" | "question1" | "questionStage" | "question2";
 
 interface LeadData {
   name: string;
   phone: string;
   project_type: string | null;
+  project_stage?: string | null;
   timeline: string | null;
 }
 
