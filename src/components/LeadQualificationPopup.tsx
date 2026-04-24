@@ -97,10 +97,8 @@ const LeadQualificationPopup = () => {
     }
   };
 
-  const handleProjectType = async (type: "complete" | "cut") => {
-    if (type === "complete") {
-      setStep("question2");
-    } else {
+  const handleProjectType = async (type: "residential" | "commercial" | "cut") => {
+    if (type === "cut") {
       await saveLead({
         name,
         phone,
@@ -109,7 +107,16 @@ const LeadQualificationPopup = () => {
       });
       handleClose();
       navigate("/nao-atendemos");
+      return;
     }
+
+    setProjectType(type === "residential" ? "projeto_residencial_completo" : "projeto_comercial_completo");
+    setStep("questionStage");
+  };
+
+  const handleProjectStage = (stage: "obra_do_zero" | "obra_em_andamento" | "reforma") => {
+    setProjectStage(stage);
+    setStep("question2");
   };
 
   const handleTimeline = async (timeline: "30days" | "30-60days" | "60plus" | "research") => {
@@ -123,7 +130,8 @@ const LeadQualificationPopup = () => {
     await saveLead({
       name,
       phone,
-      project_type: "projeto_completo",
+      project_type: projectType,
+      project_stage: projectStage,
       timeline: timelineMap[timeline],
     });
     
@@ -137,6 +145,8 @@ const LeadQualificationPopup = () => {
 
   const handleBack = () => {
     if (step === "question2") {
+      setStep("questionStage");
+    } else if (step === "questionStage") {
       setStep("question1");
     } else if (step === "question1") {
       setStep("contact");
