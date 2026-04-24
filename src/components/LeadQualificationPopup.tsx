@@ -49,6 +49,8 @@ const LeadQualificationPopup = () => {
       setStep("contact");
       setName("");
       setPhone("");
+      setProjectType(null);
+      setProjectStage(null);
       setErrors({});
     }, 300);
   };
