@@ -3,16 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { useLeadPopup } from "@/contexts/LeadPopupContext";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Briefcase, Scissors, User, Phone } from "lucide-react";
+import { ArrowLeft, Briefcase, Building2, Scissors, User, Phone, Hammer, Construction, Wrench } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
-type Step = "contact" | "question1" | "question2";
+type Step = "contact" | "question1" | "questionStage" | "question2";
 
 interface LeadData {
   name: string;
   phone: string;
   project_type: string | null;
+  project_stage?: string | null;
   timeline: string | null;
 }
 
@@ -21,6 +22,8 @@ const LeadQualificationPopup = () => {
   const [step, setStep] = useState<Step>("contact");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [projectType, setProjectType] = useState<string | null>(null);
+  const [projectStage, setProjectStage] = useState<string | null>(null);
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -46,6 +49,8 @@ const LeadQualificationPopup = () => {
       setStep("contact");
       setName("");
       setPhone("");
+      setProjectType(null);
+      setProjectStage(null);
       setErrors({});
     }, 300);
   };
@@ -92,10 +97,8 @@ const LeadQualificationPopup = () => {
     }
   };
 
-  const handleProjectType = async (type: "complete" | "cut") => {
-    if (type === "complete") {
-      setStep("question2");
-    } else {
+  const handleProjectType = async (type: "residential" | "commercial" | "cut") => {
+    if (type === "cut") {
       await saveLead({
         name,
         phone,
@@ -104,7 +107,16 @@ const LeadQualificationPopup = () => {
       });
       handleClose();
       navigate("/nao-atendemos");
+      return;
     }
+
+    setProjectType(type === "residential" ? "projeto_residencial_completo" : "projeto_comercial_completo");
+    setStep("questionStage");
+  };
+
+  const handleProjectStage = (stage: "obra_do_zero" | "obra_em_andamento" | "reforma") => {
+    setProjectStage(stage);
+    setStep("question2");
   };
 
   const handleTimeline = async (timeline: "30days" | "30-60days" | "60plus" | "research") => {
@@ -118,7 +130,8 @@ const LeadQualificationPopup = () => {
     await saveLead({
       name,
       phone,
-      project_type: "projeto_completo",
+      project_type: projectType,
+      project_stage: projectStage,
       timeline: timelineMap[timeline],
     });
     
@@ -132,6 +145,8 @@ const LeadQualificationPopup = () => {
 
   const handleBack = () => {
     if (step === "question2") {
+      setStep("questionStage");
+    } else if (step === "questionStage") {
       setStep("question1");
     } else if (step === "question1") {
       setStep("contact");
@@ -239,12 +254,22 @@ const LeadQualificationPopup = () => {
 
             <div className="space-y-3">
               <button
-                onClick={() => handleProjectType("complete")}
+                onClick={() => handleProjectType("residential")}
                 className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
               >
                 <div className="flex items-center gap-3">
                   <Briefcase className="h-5 w-5 flex-shrink-0 text-primary" />
                   <span className="font-semibold text-primary text-sm sm:text-base">Projeto Residencial Completo</span>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleProjectType("commercial")}
+                className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <span className="font-semibold text-primary text-sm sm:text-base">Projeto Comercial Completo</span>
                 </div>
               </button>
 
@@ -255,6 +280,60 @@ const LeadQualificationPopup = () => {
                 <div className="flex items-center gap-3">
                   <Scissors className="h-5 w-5 flex-shrink-0 text-primary" />
                   <span className="font-semibold text-primary text-sm sm:text-base" translate="no">Corte de Pedra</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {step === "questionStage" && (
+          <div className="p-5 sm:p-6">
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span>Voltar</span>
+            </button>
+
+            <div className="text-center mb-6">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-primary mb-2">
+                Conte-nos sobre seu projeto
+              </h2>
+            </div>
+
+            <p className="font-sans font-semibold text-primary text-center text-sm sm:text-base mb-4">
+              Qual se encaixa melhor?
+            </p>
+
+            <div className="space-y-3">
+              <button
+                onClick={() => handleProjectStage("obra_do_zero")}
+                className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Construction className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <span className="font-semibold text-primary text-sm sm:text-base">Obra do zero</span>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleProjectStage("obra_em_andamento")}
+                className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Hammer className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <span className="font-semibold text-primary text-sm sm:text-base">Obra em andamento</span>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleProjectStage("reforma")}
+                className="w-full p-4 rounded-lg border-2 border-accent bg-card hover:bg-accent/10 transition-all text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Wrench className="h-5 w-5 flex-shrink-0 text-primary" />
+                  <span className="font-semibold text-primary text-sm sm:text-base">Reforma</span>
                 </div>
               </button>
             </div>
