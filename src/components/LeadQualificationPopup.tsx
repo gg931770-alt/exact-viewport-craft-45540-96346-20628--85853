@@ -86,6 +86,7 @@ const LeadQualificationPopup = () => {
         name: data.name.trim(),
         phone: data.phone.replace(/\D/g, ""),
         project_type: data.project_type,
+        project_stage: data.project_stage ?? null,
         timeline: data.timeline,
       });
       
