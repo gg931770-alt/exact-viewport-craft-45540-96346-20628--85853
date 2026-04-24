@@ -79,7 +79,35 @@ const LeadQualificationPopup = () => {
     }
   };
 
+  const GOOGLE_SHEETS_WEBHOOK =
+    "https://script.google.com/macros/s/AKfycbzaY8c9Qag-ua5ONTMsqz-eWdAnWzWqwguixoPEncF5uhVB7NYp7ahfeJlWo3u7o2XHnw/exec";
+
+  const sendToGoogleSheets = (data: LeadData) => {
+    try {
+      // Usamos no-cors + text/plain para evitar preflight CORS do Apps Script.
+      // O Apps Script lê via e.postData.contents normalmente.
+      fetch(GOOGLE_SHEETS_WEBHOOK, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          name: data.name.trim(),
+          phone: data.phone.replace(/\D/g, ""),
+          project_type: data.project_type,
+          project_stage: data.project_stage ?? null,
+          timeline: data.timeline,
+        }),
+        keepalive: true,
+      }).catch((err) => console.error("Error sending to Google Sheets:", err));
+    } catch (err) {
+      console.error("Error sending to Google Sheets:", err);
+    }
+  };
+
   const saveLead = async (data: LeadData) => {
+    // Envia para Google Sheets em paralelo (não bloqueia o fluxo)
+    sendToGoogleSheets(data);
+
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { error } = await (supabase as any).from("leads").insert({
